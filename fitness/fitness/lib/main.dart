@@ -14,6 +14,12 @@ class LoginPage extends StatelessWidget
       title: appTitle,
       home: Scaffold(
         appBar: AppBar(
+          backgroundColor: Colors.green[300],
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.vertical(
+              bottom: Radius.circular(30),
+            )
+          ),
           title: Text(appTitle),
       ),
       body: Padding(
@@ -75,8 +81,10 @@ class LoginFormState extends State<LoginForm>
             },
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 135),
+            padding: const EdgeInsets.symmetric(horizontal: 135),
             child: RaisedButton(
+              hoverElevation: 2.0,
+              color: Colors.green[300],
               onPressed: ()
               {
                 if (_formKey.currentState.validate())
@@ -85,7 +93,11 @@ class LoginFormState extends State<LoginForm>
                         .showSnackBar(SnackBar(content:Text("Logging in")));
                   }
               },
-              child: Text("Sign in"),
+              child: Text("Sign in",
+                      style: TextStyle(
+                        color: Colors.white,
+                      ),
+              ),
             ),
           ),
         ],
