@@ -1,110 +1,144 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-void main() => runApp(LoginPage());
+void main() => runApp(MyGymPro());
 
-class LoginPage extends StatelessWidget
+class MyGymPro extends StatelessWidget
 {
   @override
   Widget build(BuildContext context)
   {
-    final appTitle = "MyGymPro";
-
-    return MaterialApp(
-      title: appTitle,
-      home: Scaffold(
-        appBar: AppBar(
-          backgroundColor: Colors.green[300],
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.vertical(
-              bottom: Radius.circular(30),
-            )
-          ),
-          title: Text(appTitle),
-      ),
-      body: Padding(
-        padding: EdgeInsets.fromLTRB(30, 70, 30, 70),
-        child: LoginForm(),
-        ),
-      ),
+    return new MaterialApp(
+     debugShowCheckedModeBanner: false,
+     home: new LoginPage(),
     );
   }
 }
 
-class LoginForm extends StatefulWidget
+class LoginPage extends StatefulWidget
 {
   @override
-  LoginFormState createState()
-  {
-   return LoginFormState();
-  }
+  _LoginPageState createState() => new _LoginPageState();
 }
 
-class LoginFormState extends State<LoginForm>
+class _LoginPageState extends State<LoginPage>
 {
-  final _formKey = GlobalKey<FormState>();
-
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
-    return Form(
-      key: _formKey,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Center(
-              child: Text("Login",
-                textAlign: TextAlign.center,
-                style: TextStyle(
-                  fontSize: 30,
-                ),
-              ),
-          ),
-          TextFormField(
-            validator: (value)
-            {
-              if (value.isEmpty)
-              {
-                return "Username";
-              }
-              return null;
-            },
-          ),
-          TextFormField(
-            validator: (value)
-            {
-              if (value.isEmpty)
-              {
-                return "Password";
-              }
-              return null;
-            },
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 135),
-            child: RaisedButton(
-              hoverElevation: 2.0,
-              color: Colors.green[300],
-              onPressed: ()
-              {
-                if (_formKey.currentState.validate())
-                  {
-                    Scaffold.of(context)
-                        .showSnackBar(SnackBar(content:Text("Logging in")));
-                  }
-              },
-              child: Text("Sign in",
-                      style: TextStyle(
-                        color: Colors.white,
-                      ),
+    return new Scaffold(
+        resizeToAvoidBottomPadding: false,
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              child: Stack(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.fromLTRB(15.0, 110.0, 0.0, 0.0),
+                    child: Text('MyGym',
+                        style: TextStyle(
+                            fontSize: 80.0, fontWeight: FontWeight.bold)),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(16.0, 175.0, 0.0, 0.0),
+                    child: Text('Pro',
+                        style: TextStyle(
+                            fontSize: 80.0, fontWeight: FontWeight.bold, color: Colors.green)),
+                  ),
+                ],
               ),
             ),
-          ),
-        ],
-      ),
-    );
+            Container(
+                padding: EdgeInsets.only(top: 35.0, left: 20.0, right: 20.0),
+                child: Column(
+                  children: <Widget>[
+                    TextField(
+                      decoration: InputDecoration(
+                          labelText: 'EMAIL',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green))),
+                    ),
+                    SizedBox(height: 20.0),
+                    TextField(
+                      decoration: InputDecoration(
+                          labelText: 'PASSWORD',
+                          labelStyle: TextStyle(
+                              fontFamily: 'Montserrat',
+                              fontWeight: FontWeight.bold,
+                              color: Colors.grey),
+                          focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(color: Colors.green))),
+                      obscureText: true,
+                    ),
+                    SizedBox(height: 5.0),
+                    Container(
+                      alignment: Alignment(1.0, 0.0),
+                      padding: EdgeInsets.only(top: 15.0, left: 20.0),
+                      child: InkWell(
+                        child: Text(
+                          'Forgot Password',
+                          style: TextStyle(
+                              color: Colors.green,
+                              fontWeight: FontWeight.bold,
+                              fontFamily: 'Montserrat',
+                              ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 40.0),
+                    Container(
+                      height: 40.0,
+                      child: Material(
+                        borderRadius: BorderRadius.circular(20.0),
+                        shadowColor: Colors.greenAccent,
+                        color: Colors.green,
+                        elevation: 7.0,
+                        child: GestureDetector(
+                          onTap: () {},
+                          child: Center(
+                            child: Text(
+                              'LOGIN',
+                              style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Montserrat'),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                    SizedBox(height: 5.0),
+                    Container(
+                      height: 20.0,
+                      color: Colors.transparent,
+                    )
+                  ],
+                )),
+            SizedBox(height: 5),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                SizedBox(width: 5.0),
+                InkWell(
+                  onTap: () {
+                    Navigator.of(context).pushNamed('/signup');
+                  },
+                  child: Text(
+                    'Register',
+                    style: TextStyle(
+                        color: Colors.green,
+                        fontFamily: 'Montserrat',
+                        fontWeight: FontWeight.bold,
+                        ),
+                  ),
+                )
+              ],
+            )
+          ],
+        ));
   }
 }
-
-
-
