@@ -22,18 +22,29 @@ class _SignupPageState extends State<SignupPage>
             child: Stack(
               children: <Widget>[
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 100),
+                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 80),
                   child: Text('Create Account',
                       style: TextStyle(
                           fontSize: 40, fontWeight: FontWeight.bold, color: Colors.green)),
                 ),
                 Container(
-                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 210),
+                  padding: EdgeInsets.symmetric(horizontal: 50, vertical: 170),
                   child: Column(
                     children: <Widget>[
                       TextField(
                         decoration: InputDecoration(
                             labelText: 'EMAIL',
+                            labelStyle: TextStyle(
+                                fontFamily: 'Montserrat',
+                                fontWeight: FontWeight.bold,
+                                color: Colors.grey),
+                                focusedBorder: UnderlineInputBorder(
+                                borderSide: BorderSide(color: Colors.green))),
+                      ),
+                      SizedBox(height: 20.0),
+                      TextField(
+                        decoration: InputDecoration(
+                            labelText: 'USERNAME',
                             labelStyle: TextStyle(
                                 fontFamily: 'Montserrat',
                                 fontWeight: FontWeight.bold,
@@ -53,7 +64,7 @@ class _SignupPageState extends State<SignupPage>
                                 borderSide: BorderSide(color: Colors.green))),
                                 obscureText: true,
                       ),
-                      SizedBox(height: 50.0),
+                      SizedBox(height: 40.0),
                       Container(
                         height: 40.0,
                         child: Material(

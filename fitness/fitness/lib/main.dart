@@ -59,7 +59,7 @@ class _LoginPageState extends State<LoginPage>
                   children: <Widget>[
                     TextField(
                       decoration: InputDecoration(
-                          labelText: 'EMAIL',
+                          labelText: 'USERNAME',
                           labelStyle: TextStyle(
                               fontFamily: 'Montserrat',
                               fontWeight: FontWeight.bold,
