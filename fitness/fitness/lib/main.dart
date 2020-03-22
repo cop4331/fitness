@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'signup.dart';
 
 void main() => runApp(MyGymPro());
 
@@ -10,6 +11,10 @@ class MyGymPro extends StatelessWidget
   {
     return new MaterialApp(
      debugShowCheckedModeBanner: false,
+     routes: <String, WidgetBuilder>
+      {
+        '/signup': (BuildContext context) => new SignupPage()
+     },
      home: new LoginPage(),
     );
   }
