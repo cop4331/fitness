@@ -2,13 +2,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class SignupPage extends StatefulWidget
+class SignUpPage extends StatefulWidget
 {
   @override
-  _SignupPageState createState() => new _SignupPageState();
+  _SignUpPageState createState() => new _SignUpPageState();
 }
 
-class _SignupPageState extends State<SignupPage>
+class _SignUpPageState extends State<SignUpPage>
 {
   @override
   Widget build(BuildContext context)
