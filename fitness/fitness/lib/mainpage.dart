@@ -18,11 +18,23 @@ class _MainPageState extends State<MainPage>
         child: Scaffold(
           appBar: AppBar(
             backgroundColor: Colors.green,
+            elevation: 0,
             bottom: TabBar(
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.greenAccent, Colors.lightGreenAccent]
+                ),
+                borderRadius: BorderRadius.circular(50),
+              ),
               tabs: [
                 Tab(icon: Icon(Icons.favorite, color: Colors.pink)),
-                Tab(icon: Icon(Icons.favorite, color: Colors.pink)),
-                Tab(icon: Icon(Icons.favorite, color: Colors.pink)),
+                Tab(text: "DIET"),
+                Tab(text: "WEIGHT"),
               ],
             ),
             title: Text("MyGymPro"),
@@ -50,7 +62,7 @@ class _MainPageState extends State<MainPage>
           ),
           body: TabBarView(
             children: <Widget>[
-              Text("Main Page area. Has step counter, distance traveled, goals etc.",
+              Text("Main Page area. Has step counter, distance traveled, graphs, goals, favorites, etc.",
               style: TextStyle(
                 fontSize: 25,
               )),
@@ -69,3 +81,5 @@ class _MainPageState extends State<MainPage>
     );
   }
 }
+
+
