@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'signup.dart';
 import 'mainpage.dart';
 import 'signin.dart';
+import 'test.dart';
 //import 'package:flutter/services.dart';
 
 
@@ -18,7 +19,7 @@ class MyGymPro extends StatelessWidget
      routes: <String, WidgetBuilder>
       {
         '/signup': (BuildContext context) => new SignUpPage(),
-        '/main': (BuildContext context) => new MainPage(),
+        '/main': (BuildContext context) => new MainPage()
      },
      home: new LoginPage(),
     );
