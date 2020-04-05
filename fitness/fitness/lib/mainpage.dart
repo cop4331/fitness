@@ -44,6 +44,11 @@ class _MainPageState extends State<MainPage>
     subscription = pedometer.pedometerStream.listen(onData,
     onError: onError, onDone: onDone, cancelOnError: true);
   }
+
+  int getStepGoal()
+  {
+    return 0;
+  }
   
   void onDone(){}
 
@@ -84,6 +89,13 @@ class _MainPageState extends State<MainPage>
       print(miles);
     });
 
+  }
+
+  double getCircularPercent(int goal, String stepCount)
+  {
+    int testGoal = 200;
+    String testStepCount = "50";
+    return int.parse(testStepCount) / testGoal;
   }
 
   void getCaloriesBurned(double stepCount)
@@ -134,8 +146,8 @@ class _MainPageState extends State<MainPage>
               ),
               tabs: [
                 Tab(text: "MAIN"),
-                Tab(text: "DIET"),
-                Tab(text: "WEIGHT"),
+                Tab(text: "PROGRAMS"),
+                Tab(text: "PROFILE"),
               ],
             ),
             title: Text("MyGymPro"),
@@ -205,7 +217,7 @@ class _MainPageState extends State<MainPage>
                           ),
                           Container(
                             padding: EdgeInsets.only(top: 20),
-                            child: Text("Goal: 500",
+                            child: Text("Goal: ${getStepGoal()}",
                             style: TextStyle(
                               fontSize: 15,
                             )),
@@ -213,6 +225,9 @@ class _MainPageState extends State<MainPage>
                         ],
                       ),
                     ),
+                    percent: getCircularPercent(getStepGoal(), stepCountVal),
+                    circularStrokeCap: CircularStrokeCap.round,
+                    progressColor: Colors.green,
                   ),  
                   ),
                   Container(
@@ -223,8 +238,8 @@ class _MainPageState extends State<MainPage>
                     )),
                   ),
                   Container(
-                    padding: EdgeInsets.fromLTRB(110, 25, 90, 25),
-                    child: Row(
+                    padding: EdgeInsets.fromLTRB(110, 25, 110, 25),
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: <Widget>[
                         Column(
@@ -238,10 +253,10 @@ class _MainPageState extends State<MainPage>
                           ],
                         ),
                         Container(
-                          height: 80,
-                          child: VerticalDivider(
+                          height: 0,
+                          child: Divider(
                             color: Colors.black,
-                            width: 40,
+                            height: 20,
                             thickness: 1,
                           ),
                           
@@ -260,7 +275,7 @@ class _MainPageState extends State<MainPage>
                     ),
                   ),
                   Container(
-                    padding: EdgeInsets.only(top: 20),
+                    padding: EdgeInsets.only(top: 4),
                    child: Row(
                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                      children: <Widget>[
@@ -270,7 +285,7 @@ class _MainPageState extends State<MainPage>
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(25),
                          ),
-                         child: Text("GOALS"),
+                         child: Text("History"),
                        ),
                         RaisedButton(
                          onPressed: (){},
@@ -278,7 +293,7 @@ class _MainPageState extends State<MainPage>
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(25),
                          ),
-                         child: Text("other stuff"),
+                         child: Text("Set Goal"),
                        ),
                        RaisedButton(
                          onPressed: (){},
@@ -286,22 +301,18 @@ class _MainPageState extends State<MainPage>
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(25),
                          ),
-                         child: Text("idk"),
+                         child: Text("Notes"),
                        ),
                      ],
                    ),
                   ),
-                  Container(
-                    padding: EdgeInsets.only(top: 20),
-                    child: Text("Thinking of what to put down here, maybe graphs.\n This is just the first draft"),
-                  )
                 ],
               ),
-              Text("Dieting tab",
+              Text("PASS",
               style: TextStyle(
                 fontSize: 25,
               )),
-              Text("Weight lifting tab",
+              Text("PASS",
               style: TextStyle(
                 fontSize: 25,
               )),
