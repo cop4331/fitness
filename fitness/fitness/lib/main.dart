@@ -3,8 +3,6 @@ import 'package:flutter/material.dart';
 import 'signup.dart';
 import 'mainpage.dart';
 import 'signin.dart';
-import 'test.dart';
-//import 'package:flutter/services.dart';
 
 
 void main() => runApp(MyGymPro());
