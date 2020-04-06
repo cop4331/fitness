@@ -312,10 +312,145 @@ class _MainPageState extends State<MainPage>
               style: TextStyle(
                 fontSize: 25,
               )),
-              Text("PASS",
-              style: TextStyle(
-                fontSize: 25,
-              )),
+              Container(
+                height: 300,
+                child: Column(
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 25.0, right: 25.0, top: 2.0),
+                        child: new Row(
+                          children: <Widget>[
+                            new Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: <Widget>[
+                                new Text(
+                                  'Personal Information',
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                        left: 25.0, right: 25.0, top: 25.0),
+                        child: new Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: <Widget>[
+                            new Column(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              mainAxisSize: MainAxisSize.min,
+                              children: <Widget>[
+                                new Text(
+                                  'Name',
+                                  style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                          ],
+                        )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 25.0, right: 25.0, top: 2.0),
+                          child: new Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              new Flexible(
+                                child: new TextField(
+                                  decoration: const InputDecoration(
+                                    hintText: "Display Current Name",
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ),
+                      Padding(
+                        padding: EdgeInsets.only(
+                          left: 25.0, right: 25.0, top: 25.0),
+                          child: new Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              new Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  new Text(
+                                    'Email',
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 25.0, right: 25.0, top: 2.0),
+                          child: new Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              new Flexible(
+                                child: new TextField(
+                                  decoration: const InputDecoration(
+                                    hintText: "Display Current Email",
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ),
+                        Padding(
+                        padding: EdgeInsets.only(
+                          left: 25.0, right: 25.0, top: 25.0),
+                          child: new Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              new Column(
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                mainAxisSize: MainAxisSize.min,
+                                children: <Widget>[
+                                  new Text(
+                                    'Password',
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                ],
+                              ),
+                            ],
+                          )
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: 25.0, right: 25.0, top: 2.0),
+                          child: new Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: <Widget>[
+                              new Flexible(
+                                child: new TextField(
+                                  decoration: const InputDecoration(
+                                    hintText: "Display Current Password",
+                                  ),
+                                ),
+                              ),
+                            ],
+                          )
+                        ),
+                       
+                    
+                  ],
+                ),
+              ),
             ],
           ),
         ),
