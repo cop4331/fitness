@@ -1,13 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_icons/flutter_icons.dart';
 import 'package:pedometer/pedometer.dart';
-import 'dart:math';
 import 'dart:async';
 import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'signin.dart';
+import 'listview.dart';
 
 
 
@@ -125,58 +124,7 @@ class _MainPageState extends State<MainPage>
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            elevation: 0,
-            bottom: TabBar(
-              labelStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicator: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.greenAccent, Colors.lightGreenAccent]
-                ),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              tabs: [
-                Tab(text: "MAIN"),
-                Tab(text: "PROGRAMS"),
-                Tab(text: "PROFILE"),
-              ],
-            ),
-            title: Text("MyGymPro"),
-            actions: <Widget>[
-              Stack(
-                children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                    child: Text("Logout",
-                    style: TextStyle(
-                      fontSize: 13,
-                    )),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                    child: IconButton(
-                      icon: Icon(Icons.exit_to_app, color: Colors.black),
-                      onPressed: (){
-                        //doLogout();
-                      },
-                      iconSize: 30,
-                    ),
-                  ),
-                ],
-              )
-            ],
-          ),
-          body: TabBarView(
-            children: <Widget>[
+    var children2 = <Widget>[
               Column(
                 children: <Widget>[
                   SizedBox(width: 400,height: 20),
@@ -308,10 +256,7 @@ class _MainPageState extends State<MainPage>
                   ),
                 ],
               ),
-              Text("PASS",
-              style: TextStyle(
-                fontSize: 25,
-              )),
+              weightSection(),
               Container(
                 height: 300,
                 child: Column(
@@ -446,12 +391,62 @@ class _MainPageState extends State<MainPage>
                             ],
                           )
                         ),
-                       
-                    
                   ],
                 ),
               ),
+            ];
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            elevation: 0,
+            bottom: TabBar(
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.greenAccent, Colors.lightGreenAccent]
+                ),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              tabs: [
+                Tab(text: "MAIN"),
+                Tab(text: "PROGRAMS"),
+                Tab(text: "PROFILE"),
+              ],
+            ),
+            title: Text("MyGymPro"),
+            actions: <Widget>[
+              Stack(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    child: Text("Logout",
+                    style: TextStyle(
+                      fontSize: 13,
+                    )),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: IconButton(
+                      icon: Icon(Icons.exit_to_app, color: Colors.black),
+                      onPressed: (){
+                        //doLogout();
+                      },
+                      iconSize: 30,
+                    ),
+                  ),
+                ],
+              )
             ],
+          ),
+          body: TabBarView(
+            children: children2,
           ),
         ),
       )
