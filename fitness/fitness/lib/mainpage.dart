@@ -7,6 +7,7 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'signin.dart';
 import 'listview.dart';
+import 'imageupload.dart';
 
 
 
@@ -22,11 +23,14 @@ class _MainPageState extends State<MainPage>
   String calories = "Unknown";
   String stepCounter = "";
   String stepCountVal = "Unknown";
+  String goal = "Set Goal";
   StreamSubscription<int> subscription;
+
+  final myController = TextEditingController();
 
   double stepCount;
   double milesCount;
-  double caloriesBurned;
+  int newGoal;
 
   SharedPreferences sharedPreferences;
 
@@ -44,12 +48,15 @@ class _MainPageState extends State<MainPage>
     onError: onError, onDone: onDone, cancelOnError: true);
   }
 
-  int getStepGoal()
+  void getStepGoal()
   {
-    return 0;
+    setState(() {
+      newGoal = int.parse(this.goal);
+    });
   }
   
-  void onDone(){}
+  void onDone(){
+  }
 
   void onError(error)
   {
@@ -72,6 +79,7 @@ class _MainPageState extends State<MainPage>
     });
 
     getDistanceRun(this.stepCount);
+    getCaloriesBurned(this.stepCount);
 
   }
 
@@ -85,25 +93,45 @@ class _MainPageState extends State<MainPage>
     setState(() 
     {
       miles = "$distance";
-      print(miles);
     });
 
   }
 
   double getCircularPercent(int goal, String stepCount)
   {
-    int testGoal = 200;
-    String testStepCount = "50";
-    return int.parse(testStepCount) / testGoal;
+    double dgoal;
+    if (stepCount == null)
+    {
+      stepCount = "0";
+    }
+    if(goal == null)
+    {
+      goal = 0;
+    }
+    try{
+      dgoal = (int.parse(stepCount) / goal).toDouble();
+    }
+    on NullThrownError{
+      dgoal = 0;
+    }
+
+    if (dgoal > 1.0)
+    {
+      return 1.0;
+    }
+    else
+    {
+      return dgoal;
+    }
   }
 
   void getCaloriesBurned(double stepCount)
   {
     var stepsToCalories = .04 * stepCount;
+    stepsToCalories = num.parse(stepsToCalories.toStringAsFixed(1));
     setState(() 
     {
-      caloriesBurned = stepsToCalories;
-      print(caloriesBurned);
+      calories = "$stepsToCalories";
     });
   }
 
@@ -165,7 +193,7 @@ class _MainPageState extends State<MainPage>
                           ),
                           Container(
                             padding: EdgeInsets.only(top: 20),
-                            child: Text("Goal: ${getStepGoal()}",
+                            child: Text("Goal: $newGoal",
                             style: TextStyle(
                               fontSize: 15,
                             )),
@@ -173,7 +201,7 @@ class _MainPageState extends State<MainPage>
                         ],
                       ),
                     ),
-                    percent: getCircularPercent(getStepGoal(), stepCountVal),
+                    percent: getCircularPercent(newGoal, stepCountVal),
                     circularStrokeCap: CircularStrokeCap.round,
                     progressColor: Colors.green,
                   ),  
@@ -236,7 +264,36 @@ class _MainPageState extends State<MainPage>
                          child: Text("History"),
                        ),
                         RaisedButton(
-                         onPressed: (){},
+                         onPressed: (){
+                          return showDialog(
+                            context: context,
+                            builder: (context){
+                              return AlertDialog(
+                                title: Text("Set Goal"),
+                                content: TextField(
+                                  controller: myController,
+                                  decoration: InputDecoration(hintText: "Input Goal"),
+                                ),
+                                actions: <Widget>[
+                                  new FlatButton(
+                                    child: new Text("DONE"),
+                                    onPressed: (){
+                                      goal = myController.text;
+                                      getStepGoal();
+                                      Navigator.of(context).pop();
+                                    },
+                                  ),
+                                  new FlatButton(
+                                    child: new Text("CANCEL"),
+                                    onPressed: (){
+                                      Navigator.of(context).pop();
+                                    },
+                                  )
+                                ],
+                              );
+                            }
+                           );
+                         },
                          color: Colors.green,
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(25),
@@ -257,6 +314,7 @@ class _MainPageState extends State<MainPage>
                 ],
               ),
               weightSection(),
+              ImageInput(),
               Container(
                 height: 300,
                 child: Column(
