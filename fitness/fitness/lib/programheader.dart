@@ -1,10 +1,16 @@
+
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:MyGymPro/workoutcard.dart';      
+import 'package:MyGymPro/workoutcard.dart';
+    
               
 class ProgramHeader extends StatelessWidget{
-  ProgramHeader({this.header});
+  ProgramHeader({this.header, this.exercise, this.reps, this.sets});
+
   final String header;
+  final String exercise;
+  final String sets;
+  final String reps;
  
   @override
   Widget build(BuildContext context){
@@ -13,27 +19,44 @@ class ProgramHeader extends StatelessWidget{
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Stack(
+            Row(
               children: <Widget>[
-                Text("$header",
-                  style: TextStyle(
-                    fontSize: 40,
-                    foreground: Paint()
-                    ..style = PaintingStyle.stroke
-                    ..strokeWidth = 6
-                    ..color = Colors.black,
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: IconButton(
+                      icon: Icon(Icons.exit_to_app, color: Colors.black),
+                      onPressed: (){
+                        
+                      },
+                    ),
                   ),
-                ),
-                Text("$header",
-                  style: TextStyle(
-                    fontSize: 40,
-                    color: Colors.white,
+                Padding(
+                  padding: const EdgeInsets.only(left: 75),
+                  child: Stack(
+                    children: <Widget>[
+                      Text("$header",
+                        style: TextStyle(
+                          fontSize: 40,
+                          foreground: Paint()
+                          ..style = PaintingStyle.stroke
+                          ..strokeWidth = 6
+                          ..color = Colors.black,
+                        ),
+                      ),
+                      Text("$header",
+                        style: TextStyle(
+                          fontSize: 40,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
             ),
-            Workout(),
-            Workout(),
+            Workout(exercise: this.exercise, reps: this.reps, sets: this.sets, weekNum: 1),
+            Workout(exercise: this.exercise, reps: this.reps, sets: this.sets, weekNum: 2),
+            Workout(exercise: this.exercise, reps: this.reps, sets: this.sets, weekNum: 3),
           ],
         )
       ]

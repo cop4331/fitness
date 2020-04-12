@@ -1,16 +1,16 @@
 import 'package:MyGymPro/programheader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:MyGymPro/workoutcard.dart';
+import 'workoutvals.dart';
 
 
-class ChestPage extends StatefulWidget
+class WorkoutPage extends StatefulWidget
 {
   @override
-  _ChestPageState createState() => new _ChestPageState();
+  _WorkoutPageState createState() => new _WorkoutPageState();
 }
 
-class _ChestPageState extends State<ChestPage>
+class _WorkoutPageState extends State<WorkoutPage>
 {
   @override
   Widget build(BuildContext context)
@@ -56,7 +56,7 @@ class _ChestPageState extends State<ChestPage>
                   child: IconButton(
                     icon: Icon(Icons.exit_to_app, color: Colors.black),
                     onPressed: (){
-                      //doLogout();
+                      //logout
                     },
                     iconSize: 30,
                   ),
@@ -70,11 +70,25 @@ class _ChestPageState extends State<ChestPage>
           children: <Widget>[
             PageView(
               children: <Widget>[
-                  ProgramHeader(header: "Beginner"),
+                  ProgramHeader(header: "Beginner 1", exercise: w1ChestEx1, reps: w1ChestR1, sets: w1ChestS1),
+                  ProgramHeader(header: "Beginner 2", exercise: "Test b2", reps: w1ChestR2, sets: w1ChestS2),
+                  ProgramHeader(header: "Beginner 3", exercise: "Test b3", reps: w1ChestR3, sets: w1ChestS3),
                 ],
               ),
-              ProgramHeader(header: "Intermediate"),
-              ProgramHeader(header: "Advanced"),
+              PageView(
+                children: <Widget>[
+                  ProgramHeader(header: "Intermediate 1", exercise: "Test i1", reps: "i5", sets: "i10"),
+                  ProgramHeader(header: "Intermediate 2", exercise: "Test i2", reps: "i5", sets: "i10"),
+                  ProgramHeader(header: "Intermediate 3", exercise: "Test i3", reps: "i5", sets: "i10"),
+                ],
+              ),
+              PageView(
+                children: <Widget>[
+                  ProgramHeader(header: "Advanced 1", exercise: "Test a1", reps: "5", sets: "10"),
+                  ProgramHeader(header: "Advanced 2", exercise: "Test a2", reps: "5", sets: "10"),
+                  ProgramHeader(header: "Advanced 3", exercise: "Test a3", reps: "5", sets: "10"),
+                ],
+              ), 
             ],
           ),
         ),

@@ -2,7 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';      
               
 class Workout extends StatelessWidget{
+  Workout({this.exercise, this.sets, this.reps, this.weekNum});
 
+  final String exercise;
+  final String sets;
+  final String reps;
+  final int weekNum;
 
   @override
   Widget build(BuildContext context){
@@ -25,7 +30,7 @@ class Workout extends StatelessWidget{
         children: <Widget>[
           Align(
             alignment: Alignment(-0.95, -0.9),
-            child: Text ("WEEK 1",
+            child: Text ("WEEK $weekNum",
               style: TextStyle(
                 fontSize: 15,
                 decoration: TextDecoration.underline,
@@ -44,6 +49,10 @@ class Workout extends StatelessWidget{
             ),
           ),
           Align(
+            alignment: Alignment(-.95, 0),
+            child: Text("$exercise")
+          ),
+          Align(
             alignment: Alignment(0.0, -0.65),
             child: Text ("Sets",
               style: TextStyle(
@@ -54,6 +63,10 @@ class Workout extends StatelessWidget{
             ),
           ),
           Align(
+            alignment: Alignment(0.0, -.2),
+            child: Text("$sets"),
+          ),
+          Align(
             alignment: Alignment(0.9, -0.65),
             child: Text ("Repetitions",
               style: TextStyle(
@@ -62,6 +75,10 @@ class Workout extends StatelessWidget{
                 fontWeight: FontWeight.w600,
               ),
             ),
+          ),
+          Align(
+            alignment: Alignment(0.9, -.2),
+            child: Text("$reps"),
           ),
         ],
         ),

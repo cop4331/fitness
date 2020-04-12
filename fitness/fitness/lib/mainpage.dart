@@ -1,3 +1,6 @@
+import 'package:MyGymPro/cardcolumn.dart';
+import 'package:MyGymPro/workoutcard.dart';
+import 'package:MyGymPro/wpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/pedometer.dart';
@@ -6,7 +9,7 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'signin.dart';
-import 'listview.dart';
+import 'programheader.dart';
 import 'imageupload.dart';
 
 
@@ -99,30 +102,32 @@ class _MainPageState extends State<MainPage>
 
   double getCircularPercent(int goal, String stepCount)
   {
-    double dgoal;
-    if (stepCount == null)
+    double dgoal = 5;
+    if (stepCount == "Unknown")
     {
       stepCount = "0";
     }
-    if(goal == null)
+    if (goal == null)
     {
       goal = 0;
     }
-    try{
-      dgoal = (int.parse(stepCount) / goal).toDouble();
-    }
-    on NullThrownError{
-      dgoal = 0;
-    }
-
-    if (dgoal > 1.0)
-    {
-      return 1.0;
-    }
-    else
+    if (stepCount == "Unknown" && goal == null)
     {
       return dgoal;
     }
+    if (goal != 0 && stepCount != "Unknown")
+    {
+      dgoal = (int.parse(stepCount) / goal).toDouble();
+      if (dgoal > 1.0)
+      {
+        return 1.0;
+      }
+      else
+      {
+        return dgoal;
+      }
+    }
+    return 0;
   }
 
   void getCaloriesBurned(double stepCount)
@@ -152,7 +157,58 @@ class _MainPageState extends State<MainPage>
 
   @override
   Widget build(BuildContext context) {
-    var children2 = <Widget>[
+    return MaterialApp(
+      home: DefaultTabController(
+        length: 3,
+        child: Scaffold(
+          appBar: AppBar(
+            backgroundColor: Colors.green,
+            elevation: 0,
+            bottom: TabBar(
+              labelStyle: TextStyle(
+                fontWeight: FontWeight.bold,
+                fontSize: 20,
+              ),
+              indicatorSize: TabBarIndicatorSize.tab,
+              indicator: BoxDecoration(
+                gradient: LinearGradient(
+                  colors: [Colors.greenAccent, Colors.lightGreenAccent]
+                ),
+                borderRadius: BorderRadius.circular(50),
+              ),
+              tabs: [
+                Tab(text: "MAIN"),
+                Tab(text: "PROGRAMS"),
+                Tab(text: "PROFILE"),
+              ],
+            ),
+            title: Text("MyGymPro"),
+            actions: <Widget>[
+              Stack(
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
+                    child: Text("Logout",
+                    style: TextStyle(
+                      fontSize: 13,
+                    )),
+                  ),
+                  Container(
+                    padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
+                    child: IconButton(
+                      icon: Icon(Icons.exit_to_app, color: Colors.black),
+                      onPressed: (){
+                        //doLogout();
+                      },
+                      iconSize: 30,
+                    ),
+                  ),
+                ],
+              )
+            ],
+          ),
+          body: TabBarView(
+            children: <Widget>[
               Column(
                 children: <Widget>[
                   SizedBox(width: 400,height: 20),
@@ -313,198 +369,227 @@ class _MainPageState extends State<MainPage>
                   ),
                 ],
               ),
-              weightSection(),
-              ImageInput(),
-              Container(
-                height: 300,
-                child: Column(
-                  children: <Widget>[
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 25.0, right: 25.0, top: 2.0),
-                        child: new Row(
-                          children: <Widget>[
-                            new Column(
-                              mainAxisAlignment: MainAxisAlignment.center,
-                              children: <Widget>[
-                                new Text(
-                                  'Personal Information',
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                        left: 25.0, right: 25.0, top: 25.0),
-                        child: new Row(
-                          mainAxisSize: MainAxisSize.max,
-                          children: <Widget>[
-                            new Column(
-                              mainAxisAlignment: MainAxisAlignment.start,
-                              mainAxisSize: MainAxisSize.min,
-                              children: <Widget>[
-                                new Text(
-                                  'Name',
-                                  style: TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              ],
-                            ),
-                          ],
-                        )
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 25.0, right: 25.0, top: 2.0),
-                          child: new Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              new Flexible(
-                                child: new TextField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Display Current Name",
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        ),
-                      Padding(
-                        padding: EdgeInsets.only(
-                          left: 25.0, right: 25.0, top: 25.0),
-                          child: new Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              new Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  new Text(
-                                    'Email',
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 25.0, right: 25.0, top: 2.0),
-                          child: new Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              new Flexible(
-                                child: new TextField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Display Current Email",
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        ),
-                        Padding(
-                        padding: EdgeInsets.only(
-                          left: 25.0, right: 25.0, top: 25.0),
-                          child: new Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              new Column(
-                                mainAxisAlignment: MainAxisAlignment.start,
-                                mainAxisSize: MainAxisSize.min,
-                                children: <Widget>[
-                                  new Text(
-                                    'Password',
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        fontWeight: FontWeight.bold),
-                                  ),
-                                ],
-                              ),
-                            ],
-                          )
-                    ),
-                    Padding(
-                      padding: EdgeInsets.only(
-                          left: 25.0, right: 25.0, top: 2.0),
-                          child: new Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: <Widget>[
-                              new Flexible(
-                                child: new TextField(
-                                  decoration: const InputDecoration(
-                                    hintText: "Display Current Password",
-                                  ),
-                                ),
-                              ),
-                            ],
-                          )
-                        ),
-                  ],
-                ),
-              ),
-            ];
-    return MaterialApp(
-      home: DefaultTabController(
-        length: 3,
-        child: Scaffold(
-          appBar: AppBar(
-            backgroundColor: Colors.green,
-            elevation: 0,
-            bottom: TabBar(
-              labelStyle: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: 20,
-              ),
-              indicatorSize: TabBarIndicatorSize.tab,
-              indicator: BoxDecoration(
-                gradient: LinearGradient(
-                  colors: [Colors.greenAccent, Colors.lightGreenAccent]
-                ),
-                borderRadius: BorderRadius.circular(50),
-              ),
-              tabs: [
-                Tab(text: "MAIN"),
-                Tab(text: "PROGRAMS"),
-                Tab(text: "PROFILE"),
-              ],
-            ),
-            title: Text("MyGymPro"),
-            actions: <Widget>[
-              Stack(
+              ListView(
                 children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 5, 0, 0),
-                    child: Text("Logout",
-                    style: TextStyle(
-                      fontSize: 13,
-                    )),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                    child: IconButton(
-                      icon: Icon(Icons.exit_to_app, color: Colors.black),
-                      onPressed: (){
-                        //doLogout();
-                      },
-                      iconSize: 30,
-                    ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                    children: <Widget>[
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("CHEST"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("SHOULDERS"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("BACK"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("LEGS"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ]
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("BICEPS"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("TRICEPS"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("ABS"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("SQUAT"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: <Widget>[
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("DEADLIFT"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Card(
+                            margin: EdgeInsets.all(10),
+                            child: Container(
+                              width: 150,
+                              height: 140,
+                              child: RaisedButton(
+                                onPressed: (){
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                },
+                                padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
+                                color: Colors.greenAccent[200],
+                                child: cardCol("BENCH"),
+                                shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ],
                   ),
                 ],
-              )
+              ),
+              ImageInput(),
             ],
-          ),
-          body: TabBarView(
-            children: children2,
           ),
         ),
       )
