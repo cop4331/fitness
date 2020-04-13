@@ -99,6 +99,9 @@ class _SignUpPageState extends State<SignUpPage>
                           ),
                           SizedBox(width: 5.0),
                           InkWell(
+                            onTap: (){
+                              Navigator.pop(context);
+                            },
                             child: Text(
                               "Login",
                               style: TextStyle(

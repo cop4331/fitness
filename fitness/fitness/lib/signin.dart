@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'mainpage.dart';
 import 'package:http/http.dart' as http;
-import 'package:flutter/services.dart';
 import 'dart:convert';
 
 class LoginPage extends StatefulWidget
@@ -27,7 +26,7 @@ class _LoginPageState extends State<LoginPage>
       'password': password
     };
 
-    var jsonResponse = null;
+    var jsonResponse;
     var response = await http.post("signinapi", body: data);
     if (response.statusCode == 200)
     {

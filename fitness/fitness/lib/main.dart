@@ -1,9 +1,9 @@
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'signup.dart';
 import 'mainpage.dart';
 import 'signin.dart';
-
 
 void main() => runApp(MyGymPro());
 
@@ -17,7 +17,7 @@ class MyGymPro extends StatelessWidget
      routes: <String, WidgetBuilder>
       {
         '/signup': (BuildContext context) => new SignUpPage(),
-        '/main': (BuildContext context) => new MainPage()
+        '/main': (BuildContext context) => new MainPage(),
      },
      home: new LoginPage(),
     );

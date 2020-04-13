@@ -1,5 +1,4 @@
 import 'package:MyGymPro/cardcolumn.dart';
-import 'package:MyGymPro/workoutcard.dart';
 import 'package:MyGymPro/wpage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +8,6 @@ import 'package:percent_indicator/circular_percent_indicator.dart';
 import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'signin.dart';
-import 'programheader.dart';
 import 'imageupload.dart';
 
 
@@ -59,6 +57,7 @@ class _MainPageState extends State<MainPage>
   }
   
   void onDone(){
+    subscription.cancel();
   }
 
   void onError(error)
