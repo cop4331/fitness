@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/cupertino.dart';      
+
 
 String exercise;
 String reps;
@@ -8,81 +9,127 @@ String sets;
 class Workout extends StatelessWidget{
   final String muscle;
   final int weekNum;
+  final String difficulty;
   
   Workout( 
-    {this.muscle, this.weekNum}
+    {this.muscle, this.weekNum, this.difficulty}
   );
-  
+
   void defineWorkout(String m, int week){
     switch(m)
     {
       case "CHEST":
       {
-        if (week == 1)
+        if (difficulty == "Beginner")
         {
-          exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
-          sets = "3\n3\n3";
-          reps = "3\n8\nBurnout";
+          if (week == 1)
+          {
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            sets = "3\n3\n3";
+            reps = "3\n8\nBurnout";
+          }
+          else if(week == 2)
+          {
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            sets = "4\n4\n3";
+            reps = "\n3\n8\nBurnout\n";
+          }
+          else if(week == 3)
+          {
+            exercise = " \n Machine Bench Press (+)\n Incline Dumbell Press (+)\n Push ups\n NEW: Dumbbell Fly";
+            sets = "\n3\n3\n3\n2";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else if(week == 4)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n4\n3\n4\n3";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else if(week == 5)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n3\n3\n4\n3";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else if(week == 6)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n4\n4\n4\n3";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else if(week == 7)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n4\n5\n5\n4";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else if(week == 8)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n3\n3\n5\n3";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else if(week == 9)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n4\n4\n5\n3";
+            reps = "\n4\n8\nBurnout\n8";
+          }
+          else if(week == 10)
+          {
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            sets = "\n3\n3\n5\n3";
+            reps = "\n3\n8\nBurnout\n8";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
         }
-        else if(week == 2)
+        else if (difficulty == "Intermediate")
         {
-          exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
-          sets = "4\n4\n3";
-          reps = "\n3\n8\nBurnout\n";
+          if (week == 1)
+          {
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            sets = "3\n3\n3";
+            reps = "3\n8\nBurnout";
+          }
+          else if(week == 2)
+          {
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            sets = "4\n4\n3";
+            reps = "3\n8\nBurnout\n5-10 last";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
         }
-        else if(week == 3)
+        else if (difficulty == "Advanced")
         {
-          exercise = " \n Machine Bench Press (+)\n Incline Dumbell Press (+)\n Push ups\n NEW: Dumbbell Fly";
-          sets = "\n3\n3\n3\n2";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else if(week == 4)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n4\n3\n4\n3";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else if(week == 5)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n3\n3\n4\n3";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else if(week == 6)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n4\n4\n4\n3";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else if(week == 7)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n4\n5\n5\n4";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else if(week == 8)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n3\n3\n5\n3";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else if(week == 9)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n4\n4\n5\n3";
-          reps = "\n4\n8\nBurnout\n8";
-        }
-        else if(week == 10)
-        {
-          exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
-          sets = "\n3\n3\n5\n3";
-          reps = "\n3\n8\nBurnout\n8";
-        }
-        else
-        {
-          exercise = null;
-          sets = null;
-          reps = null;
+          if (week == 1)
+          {
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            sets = "3\n3\n3";
+            reps = "3\n8\nBurnout";
+          }
+          else if(week == 2)
+          {
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            sets = "4\n4\n3";
+            reps = "3\n8\nBurnout\n5-10 last";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
         }
         break;
       }

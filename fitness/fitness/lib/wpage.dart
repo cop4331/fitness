@@ -70,27 +70,20 @@ class _WorkoutPageState extends State<WorkoutPage>
           ],
         ),
         body: TabBarView(
-          physics: NeverScrollableScrollPhysics(),
           children: <Widget>[
             PageView(
               children: <Widget>[
-                  ProgramHeader(header: "Beginner 1", muscle: this.muscle),
-                  ProgramHeader(header: "Beginner 2", muscle: this.muscle),
-                  ProgramHeader(header: "Beginner 3", muscle: this.muscle),
+                  ProgramHeader(header: "Beginner", muscle: this.muscle),
                 ],
               ),
               PageView(
                 children: <Widget>[
-                  ProgramHeader(header: "Intermediate 1", muscle: this.muscle),
-                  ProgramHeader(header: "Intermediate 2", muscle: this.muscle),
-                  ProgramHeader(header: "Intermediate 3", muscle: this.muscle),
+                  ProgramHeader(header: "Intermediate", muscle: this.muscle),
                 ],
               ),
               PageView(
                 children: <Widget>[
-                  ProgramHeader(header: "Advanced 1", muscle: this.muscle),
-                  ProgramHeader(header: "Advanced 2", muscle: this.muscle),
-                  ProgramHeader(header: "Advanced 3", muscle: this.muscle),
+                  ProgramHeader(header: "Advanced", muscle: this.muscle),
                 ],
               ), 
             ],
