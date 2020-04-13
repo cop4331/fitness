@@ -38,61 +38,61 @@ class _WorkoutState extends State<Workout>{
         {
           if (week == 1)
           {
-            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push Ups";
             sets = "3\n3\n3";
             reps = "3\n8\nBurnout";
           }
           else if(week == 2)
           {
-            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push Ups";
             sets = "4\n4\n3";
             reps = "\n3\n8\nBurnout\n";
           }
           else if(week == 3)
           {
-            exercise = " \n Machine Bench Press (+)\n Incline Dumbell Press (+)\n Push ups\n NEW: Dumbbell Fly";
+            exercise = " \n Machine Bench Press (+)\n Incline Dumbell Press (+)\n Push Ups\n NEW: Dumbbell Fly";
             sets = "\n3\n3\n3\n2";
             reps = "\n3\n8\nBurnout\n8";
           }
           else if(week == 4)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n4\n3\n4\n3";
             reps = "\n3\n8\nBurnout\n8";
           }
           else if(week == 5)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n3\n3\n4\n3";
             reps = "\n3\n8\nBurnout\n8";
           }
           else if(week == 6)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n4\n4\n4\n3";
             reps = "\n3\n8\nBurnout\n8";
           }
           else if(week == 7)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n4\n5\n5\n4";
             reps = "\n3\n8\nBurnout\n8";
           }
           else if(week == 8)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n3\n3\n5\n3";
             reps = "\n3\n8\nBurnout\n8";
           }
           else if(week == 9)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n4\n4\n5\n3";
             reps = "\n4\n8\nBurnout\n8";
           }
           else if(week == 10)
           {
-            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push ups\n Dumbbell Fly";
+            exercise = " \n Machine Bench Press\n Incline Dumbell Press\n Push Ups\n Dumbbell Fly";
             sets = "\n3\n3\n5\n3";
             reps = "\n3\n8\nBurnout\n8";
           }
@@ -107,15 +107,63 @@ class _WorkoutState extends State<Workout>{
         {
           if (week == 1)
           {
-            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
-            sets = "3\n3\n3";
-            reps = "3\n8\nBurnout";
+            exercise = "\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n3\n3\n4\n3";
+            reps = "\n8\n8\n15\n6";
           }
           else if(week == 2)
           {
-            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
-            sets = "4\n4\n3";
-            reps = "3\n8\nBurnout\n5-10 last";
+            exercise = "\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n5\n3\n4\n3";
+            reps = "\n5\n8\n15\n8";
+          }
+          else if(week == 3)
+          {
+            exercise = "\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n5\n4\n4\n3";
+            reps = "\n6\n8\n15\n6";
+          }
+          else if(week == 4)
+          {
+            exercise = "\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n3\n3\n4\n3";
+            reps = "\n8\n8\n15\n8";
+          }
+          else if(week == 5)
+          {
+            exercise = "\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n5\n3\n4\n3";
+            reps = "\n5\n8\n15\n6";
+          }
+          else if(week == 6)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n4\n3\n3";
+            reps = "\n\n          6\n          8\n          15\n          8\n Burnout";
+          }
+          else if(week == 7)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n3\n3\n4\n3\n3";
+            reps = "\n\n          8\n          8\n          15\n          6\n Burnout";
+          }
+          else if(week == 8)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n4\n3\n4";
+            reps = "\n\n          5\n          8\n          15\n          6\n Burnout";
+          }
+          else if(week == 9)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n4\n3\n4";
+            reps = "\n\n          6\n          8\n          15\n          8\n Burnout";
+          }
+          else if(week == 10)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Dumbell Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n4\n3\n5";
+            reps = "\n\n          7\n          8\n          15\n          6\n Burnout";
           }
           else
           {
@@ -128,15 +176,63 @@ class _WorkoutState extends State<Workout>{
         {
           if (week == 1)
           {
-            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
-            sets = "3\n3\n3";
-            reps = "3\n8\nBurnout";
+            exercise = "\n Flat Bench Press\n Incline Bench Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n\n3\n3\n4\n3\n";
+            reps = "\n\n          8\n          8\n          15\n          6\n";
           }
           else if(week == 2)
           {
-            exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
-            sets = "4\n4\n3";
-            reps = "3\n8\nBurnout\n5-10 last";
+            exercise = "\n Flat Bench Press\n Incline Bench Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n\n5\n3\n4\n3\n";
+            reps = "\n\n          5\n          10\n          15\n          8\n";
+          }
+          else if(week == 3)
+          {
+            exercise = "\n Flat Bench Press\n Incline Bench Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n\n5\n3\n4\n3\n";
+            reps = "\n\n          6\n          8\n          15\n          6\n";
+          }
+          else if(week == 4)
+          {
+            exercise = "\n Flat Bench Press\n Incline Bench Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n\n3\n3\n4\n3\n";
+            reps = "\n\n          8\n          10\n          15\n          8\n";
+          }
+          else if(week == 5)
+          {
+            exercise = "\n Flat Bench Press\n Incline Bench Press\n Cable Cross Over\n Dumbbell Fly";
+            sets = "\n\n5\n3\n4\n3\n";
+            reps = "\n\n          5\n          8\n          15\n          6\n";
+          }
+          else if(week == 6)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Bench Press\n Cable Cross Over\n Dumbbell Fly\n NEW: Push Ups";
+            sets = "\n\n5\n3\n4\n3\n";
+            reps = "\n\n          6\n          10\n          15\n          8\n Burn out";
+          }
+          else if(week == 7)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Bench Press\n NEW: Decline Bench Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n3\n3\n3\n4\n3\n3";
+            reps = "\n\n          8\n          8\n          3\n          15\n          8\n Burn out";
+          }
+          else if(week == 8)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Bench Press\n Decline Bench Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n3\n4\n3\n3";
+            reps = "\n\n          5\n          10\n          3\n          15\n          6\n Burn out";
+          }
+          else if(week == 9)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Bench Press\n Decline Bench Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n3\n4\n3\n4";
+            reps = "\n\n          6\n          8\n          3\n          15\n          8\n Burn out";
+          }
+          else if(week == 10)
+          {
+            exercise = "\n\n Flat Bench Press\n Incline Bench Press\n Decline Bench Press\n Cable Cross Over\n Dumbbell Fly\n Push Ups";
+            sets = "\n\n5\n3\n3\n4\n3\n5";
+            reps = "\n\n          7\n          10\n          3\n          15\n          6\n Burn out";
           }
           else
           {
@@ -149,6 +245,213 @@ class _WorkoutState extends State<Workout>{
       }
       case "SHOULDERS":
       {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 2)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 3)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 4)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 5)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 6)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 7)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 8)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 9)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 10)
+          {
+            exercise = " Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises";
+            sets = "3\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            exercise = " \n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n3\n4\n4\n3";
+            reps = "\n6\n8\n8\n6";
+          }
+          else if (week == 2)
+          {
+            exercise = " \n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n3\n4\n4\n3";
+            reps = "\n8\n10\n10\n8";
+          }
+          else if (week == 3)
+          {
+            exercise = " \n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n3\n5\n4\n3";
+            reps = "\n10\n10\n10\n8";
+          }
+          else if (week == 4)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n NEW: Cable Lateral Raises";
+            sets = "\n\n3\n4\n4\n4\n4";
+            reps = "\n\n6\n8\n8\n10\n6";
+          }
+          else if (week == 5)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n Cable Lateral Raises";
+            sets = "\n\n3\n4\n4\n3\n4";
+            reps = "\n\n8\n10\n10\n8\n6";
+          }
+          else if (week == 6)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n Cable Lateral Raises";
+            sets = "\n\n3\n5\n4\n3\n4";
+            reps = "\n\n10\n10\n10\n8\n6";
+          }
+          else if (week == 7)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n Cable Lateral Raises";
+            sets = "\n\n3\n4\n4\n4\n4";
+            reps = "\n\n6\n8\n8\n10\n6";
+          }
+          else if (week == 8)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n Cable Lateral Raises";
+            sets = "\n\n3\n4\n4\n3\n4";
+            reps = "\n\n8\n10\n10\n8\n6";
+          }
+          else if (week == 9)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n Cable Lateral Raises";
+            sets = "\n\n3\n5\n4\n3\n4";
+            reps = "\n\n10\n10\n10\n8\n6";
+          }
+          else if (week == 10)
+          {
+            exercise = " \n\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls\n Cable Lateral Raises";
+            sets = "\n\n3\n4\n4\n4\n4";
+            reps = "\n\n6\n8\n8\n10\n6";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n6\n6\n8\n6\n6";
+          }
+          else if (week == 2)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n7\n8\n10\n10\n6";
+          }
+          else if (week == 3)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n6\n6\n8\n6\n6";
+          }
+          else if (week == 4)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n7\n8\n10\n10\n6";
+          }
+          else if (week == 5)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n6\n6\n8\n6\n6";
+          }
+          else if (week == 6)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n7\n8\n10\n10\n6";
+          }
+          else if (week == 7)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n6\n6\n8\n6\n6";
+          }
+          else if (week == 8)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n7\n8\n10\n10\n6";
+          }
+          else if (week == 9)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n6\n6\n8\n6\n6";
+          }
+          else if (week == 10)
+          {
+            exercise = " \n\n Barbell Overhead Press\n Dumbbell Overhead Press\n Standing Dumbbell Fly\n Dumbbell Front Raises\n Cable Face Pulls";
+            sets = "\n\n3\n3\n4\n4\n3";
+            reps = "\n\n7\n8\n10\n10\n6";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "BACK":
