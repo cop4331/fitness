@@ -5,12 +5,10 @@ import 'package:MyGymPro/workoutcard.dart';
     
               
 class ProgramHeader extends StatelessWidget{
-  ProgramHeader({this.header, this.exercise, this.reps, this.sets});
+  ProgramHeader({this.header, this.muscle});
 
   final String header;
-  final String exercise;
-  final String sets;
-  final String reps;
+  final String muscle;
  
   @override
   Widget build(BuildContext context){
@@ -54,9 +52,16 @@ class ProgramHeader extends StatelessWidget{
                 ),
               ],
             ),
-            Workout(exercise: this.exercise, reps: this.reps, sets: this.sets, weekNum: 1),
-            Workout(exercise: this.exercise, reps: this.reps, sets: this.sets, weekNum: 2),
-            Workout(exercise: this.exercise, reps: this.reps, sets: this.sets, weekNum: 3),
+            Workout(muscle: muscle, weekNum: 1),
+            Workout(muscle: muscle, weekNum: 2),
+            Workout(muscle: muscle, weekNum: 3),
+            Workout(muscle: muscle, weekNum: 4),
+            Workout(muscle: muscle, weekNum: 5),
+            Workout(muscle: muscle, weekNum: 6),
+            Workout(muscle: muscle, weekNum: 7),
+            Workout(muscle: muscle, weekNum: 8),
+            Workout(muscle: muscle, weekNum: 9),
+            Workout(muscle: muscle, weekNum: 10),
           ],
         )
       ]

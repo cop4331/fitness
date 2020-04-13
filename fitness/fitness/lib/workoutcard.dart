@@ -1,16 +1,92 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';      
-              
-class Workout extends StatelessWidget{
-  Workout({this.exercise, this.sets, this.reps, this.weekNum});
+import 'workoutvals.dart';
 
-  final String exercise;
-  final String sets;
-  final String reps;
+
+String exercise;
+String reps;
+String sets;
+
+class Workout extends StatelessWidget{
+  final String muscle;
   final int weekNum;
+  
+  Workout( 
+    {this.muscle, this.weekNum}
+  );
+  
+  void defineWorkout(String m, int week){
+    switch(m)
+    {
+      case "CHEST":
+      {
+        if (week == 1)
+        {
+          exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+          sets = "3\n3\n3";
+          reps = "3\n8\nBurnout";
+        }
+        else if(week == 2)
+        {
+          exercise = " Machine Bench Press\n Incline Dumbell Press\n Push ups";
+          sets = "4\n4\n3";
+          reps = "3\n8\nBurnout\n5-10 last";
+        }
+        else
+        {
+          exercise = null;
+          sets = null;
+          reps = null;
+        }
+        break;
+      }
+      case "SHOULDERS":
+      {
+        break;
+      }
+      case "BACK":
+      {
+        break;
+      }
+      case "LEGS":
+      {
+        break;
+      }
+      case "BICEPS":
+      {
+        break;
+      }
+      case "TRICEPS":
+      {
+        break;
+      }
+      case "ABS":
+      {
+        break;
+      }
+      case "SQUAT":
+      {
+        break;
+      }
+      case "DEADLIFT":
+      {
+        break;
+      }
+      case "BENCH":
+      {
+        break;
+      }
+      default:
+      {
+        break;
+      }
+    break;
+    }
+  }
 
   @override
   Widget build(BuildContext context){
+    defineWorkout(muscle, weekNum);
     return Card(
       margin: EdgeInsets.all(5.0),
       shape: RoundedRectangleBorder(
@@ -63,7 +139,7 @@ class Workout extends StatelessWidget{
             ),
           ),
           Align(
-            alignment: Alignment(0.0, -.2),
+            alignment: Alignment(0.0, 0),
             child: Text("$sets"),
           ),
           Align(
@@ -77,7 +153,7 @@ class Workout extends StatelessWidget{
             ),
           ),
           Align(
-            alignment: Alignment(0.9, -.2),
+            alignment: Alignment(0.9, 0),
             child: Text("$reps"),
           ),
         ],

@@ -6,12 +6,17 @@ import 'workoutvals.dart';
 
 class WorkoutPage extends StatefulWidget
 {
+  WorkoutPage({this.muscle});
+  final String muscle;
+
   @override
-  _WorkoutPageState createState() => new _WorkoutPageState();
+  _WorkoutPageState createState() => new _WorkoutPageState(muscle: this.muscle);
 }
 
 class _WorkoutPageState extends State<WorkoutPage>
 {
+  _WorkoutPageState({this.muscle});
+  final String muscle;
   @override
   Widget build(BuildContext context)
   {
@@ -70,23 +75,23 @@ class _WorkoutPageState extends State<WorkoutPage>
           children: <Widget>[
             PageView(
               children: <Widget>[
-                  ProgramHeader(header: "Beginner 1", exercise: w1ChestEx1, reps: w1ChestR1, sets: w1ChestS1),
-                  ProgramHeader(header: "Beginner 2", exercise: "Test b2", reps: w1ChestR2, sets: w1ChestS2),
-                  ProgramHeader(header: "Beginner 3", exercise: "Test b3", reps: w1ChestR3, sets: w1ChestS3),
+                  ProgramHeader(header: "Beginner 1", muscle: this.muscle),
+                  ProgramHeader(header: "Beginner 2", muscle: this.muscle),
+                  ProgramHeader(header: "Beginner 3", muscle: this.muscle),
                 ],
               ),
               PageView(
                 children: <Widget>[
-                  ProgramHeader(header: "Intermediate 1", exercise: "Test i1", reps: "i5", sets: "i10"),
-                  ProgramHeader(header: "Intermediate 2", exercise: "Test i2", reps: "i5", sets: "i10"),
-                  ProgramHeader(header: "Intermediate 3", exercise: "Test i3", reps: "i5", sets: "i10"),
+                  ProgramHeader(header: "Intermediate 1", muscle: this.muscle),
+                  ProgramHeader(header: "Intermediate 2", muscle: this.muscle),
+                  ProgramHeader(header: "Intermediate 3", muscle: this.muscle),
                 ],
               ),
               PageView(
                 children: <Widget>[
-                  ProgramHeader(header: "Advanced 1", exercise: "Test a1", reps: "5", sets: "10"),
-                  ProgramHeader(header: "Advanced 2", exercise: "Test a2", reps: "5", sets: "10"),
-                  ProgramHeader(header: "Advanced 3", exercise: "Test a3", reps: "5", sets: "10"),
+                  ProgramHeader(header: "Advanced 1", muscle: this.muscle),
+                  ProgramHeader(header: "Advanced 2", muscle: this.muscle),
+                  ProgramHeader(header: "Advanced 3", muscle: this.muscle),
                 ],
               ), 
             ],
