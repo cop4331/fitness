@@ -528,7 +528,7 @@ class _MainPageState extends State<MainPage>
                               height: 140,
                               child: RaisedButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage(muscle: "SQUAT")));
                                 },
                                 padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
                                 color: Colors.greenAccent[200],
@@ -552,7 +552,7 @@ class _MainPageState extends State<MainPage>
                               height: 140,
                               child: RaisedButton(
                                 onPressed: (){
-                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage(muscle: "DEADLIFT")));
                                   },
                                 padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
                                 color: Colors.greenAccent[200],
@@ -570,7 +570,7 @@ class _MainPageState extends State<MainPage>
                               height: 140,
                               child: RaisedButton(
                                 onPressed: (){
-                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage()));
+                                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => WorkoutPage(muscle: "BENCH")));
                                 },
                                 padding: new EdgeInsets.fromLTRB(0, 0, 0, 5),
                                 color: Colors.greenAccent[200],

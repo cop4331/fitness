@@ -2,10 +2,25 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:MyGymPro/workoutcard.dart';
+//import 'package:MyGymPro/custominput.dart';
     
-              
-class ProgramHeader extends StatelessWidget{
+int max = int.parse(myController.text);
+
+class ProgramHeader extends StatefulWidget
+{
   ProgramHeader({this.header, this.muscle});
+  final String muscle;
+  final String header;
+
+  @override
+  _ProgramHeaderState createState() => new _ProgramHeaderState(header: this.header, muscle: this.muscle);
+}
+
+
+class _ProgramHeaderState extends State<ProgramHeader>
+{
+  _ProgramHeaderState({this.header, this.muscle});
+  GlobalKey<FormState> _programKey = GlobalKey<FormState>(debugLabel: '_programScreenKey');
 
   final String header;
   final String muscle;
@@ -13,45 +28,11 @@ class ProgramHeader extends StatelessWidget{
   @override
   Widget build(BuildContext context){
     return ListView(
+      key: _programKey,
       children: <Widget>[
         Column(
           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: <Widget>[
-            Row(
-              children: <Widget>[
-                  Container(
-                    padding: EdgeInsets.fromLTRB(0, 15, 0, 15),
-                    child: IconButton(
-                      icon: Icon(Icons.exit_to_app, color: Colors.black),
-                      onPressed: (){
-                        
-                      },
-                    ),
-                  ),
-                Padding(
-                  padding: const EdgeInsets.only(left: 75),
-                  child: Stack(
-                    children: <Widget>[
-                      Text("$header",
-                        style: TextStyle(
-                          fontSize: 40,
-                          foreground: Paint()
-                          ..style = PaintingStyle.stroke
-                          ..strokeWidth = 6
-                          ..color = Colors.black,
-                        ),
-                      ),
-                      Text("$header",
-                        style: TextStyle(
-                          fontSize: 40,
-                          color: Colors.white,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
             Workout(muscle: muscle, weekNum: 1, difficulty: header),
             Workout(muscle: muscle, weekNum: 2, difficulty: header),
             Workout(muscle: muscle, weekNum: 3, difficulty: header),

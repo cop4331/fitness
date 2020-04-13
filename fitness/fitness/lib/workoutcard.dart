@@ -1,3 +1,4 @@
+import 'package:MyGymPro/programheader.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';      
 
@@ -5,13 +6,26 @@ import 'package:flutter/cupertino.dart';
 String exercise;
 String reps;
 String sets;
+int maxLift;
+TextEditingController myController = TextEditingController();
 
-class Workout extends StatelessWidget{
+class Workout extends StatefulWidget
+{
+  Workout({this.muscle, this.weekNum, this.difficulty});
+  final String muscle;
+  final int weekNum;
+  final String difficulty;
+
+  @override
+  _WorkoutState createState() => new _WorkoutState(muscle: this.muscle, weekNum:this.weekNum, difficulty: this.difficulty);
+}
+
+class _WorkoutState extends State<Workout>{
   final String muscle;
   final int weekNum;
   final String difficulty;
   
-  Workout( 
+  _WorkoutState( 
     {this.muscle, this.weekNum, this.difficulty}
   );
 
@@ -177,6 +191,13 @@ class Workout extends StatelessWidget{
     }
   }
 
+  void getMax()
+  {
+    setState(() {
+       maxLift = max;
+    });
+  }
+
   @override
   Widget build(BuildContext context){
     defineWorkout(muscle, weekNum);
@@ -220,6 +241,62 @@ class Workout extends StatelessWidget{
           Align(
             alignment: Alignment(-.95, 0),
             child: Text("$exercise")
+          ),
+          if ((muscle == "SQUAT" || muscle == "BENCH"  || muscle == "DEADLIFT") && weekNum == 1)
+          Align(
+            alignment: Alignment(0, -0.95),
+            child: Text ("Max: $maxLift lbs",
+              style: TextStyle(
+                fontSize: 15,
+                decoration: TextDecoration.underline,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+          ),
+          if ((muscle == "SQUAT" || muscle == "BENCH"  || muscle == "DEADLIFT") && weekNum == 1)
+          Align(
+            alignment: Alignment(0, 1),
+            child: Container(
+              height: 20,
+              child: RaisedButton(
+                onPressed: (){
+                  return showDialog(
+                    context: context,
+                    builder: (context){
+                      return AlertDialog(
+                        title: Text("Set Max"),
+                        content: TextField(
+                          controller: myController,
+                          decoration: InputDecoration(hintText: "Input Goal"),
+                        ),
+                          actions: <Widget>[
+                            new FlatButton(
+                              child: new Text("DONE"),
+                              onPressed: (){
+                              max = int.parse(myController.text);
+                              getMax();
+                              print(max);
+                              Navigator.of(context).pop();
+                              },
+                            ),
+                          new FlatButton(
+                            child: new Text("CANCEL"),
+                            onPressed: (){
+                              Navigator.pop(context);
+                            },
+                          )
+                        ],
+                      );
+                    }
+                );
+              },
+              color: Colors.green,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(45),
+              ),
+              child: Text("Set Max"),
+              ),
+            ),
           ),
           Align(
             alignment: Alignment(0.0, -0.65),
