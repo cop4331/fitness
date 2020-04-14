@@ -456,10 +456,424 @@ class _WorkoutState extends State<Workout>{
       }
       case "BACK":
       {
+        if (difficulty == "Beginner")
+        {
+            if (week == 1)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "6\nBurnout";
+            }
+            else if (week == 2)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "7\nBurnout";
+            }
+            else if (week == 3)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "8\nBurnout";
+            }
+            else if (week == 4)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "9\nBurnout";
+            }
+            else if (week == 5)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "6\nBurnout";
+            }
+            else if (week == 6)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "7\nBurnout";
+            }
+            else if (week == 7)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "8\nBurnout";
+            }
+            else if (week == 8)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "9\nBurnout";
+            }
+            else if (week == 9)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "6\nBurnout";
+            }
+            else if (week == 10)
+            {
+              exercise = " Seated Machine Rows\n Pull Ups";
+              sets = "4\n3";
+              reps = "7\nBurnout";
+            }
+            else
+              {
+                exercise = null;
+                sets = null;
+                reps = null;
+              }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n4\n4";
+            reps = "8\n6\nBurnout";
+          }
+          else if (week == 2)
+          {
+              exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+              sets = "4\n5\n4";
+              reps = "9\n6\nBurnout";
+          }
+          else if (week == 3)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n5\n4";
+            reps = "10\n6\nBurnout";
+          }
+          else if (week == 4)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n4\n4";
+            reps = "8\n6\nBurnout";
+          }
+          else if (week == 5)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n5\n4";
+            reps = "9\n6\nBurnout";
+          }
+          else if (week == 6)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n5\n4";
+            reps = "10\n6\nBurnout";
+          }
+          else if (week == 7)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n4\n4";
+            reps = "8\n6\nBurnout";
+          }
+          else if (week == 8)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n5\n4";
+            reps = "9\n6\nBurnout";
+          }
+          else if (week == 9)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n5\n4";
+            reps = "10\n6\nBurnout";
+          }
+          else if (week == 10)
+          {
+            exercise = " Dumbbell Single Arm Row\n Seated Machine Rows\n Pull Ups";
+            sets = "4\n4\n4";
+            reps = "8\n6\nBurnout";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n3\n6\n6\nBurntout\nBurnout";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n4\n7\n7\nBurntout\nBurnout";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n4\n4\n4\n3\n3";
+            reps = "\n\n4\n8\n8\nBurntout\nBurnout";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n3\n6\n6\nBurntout\nBurnout";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n4\n7\n7\nBurntout\nBurnout";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n4\n4\n4\n3\n3";
+            reps = "\n\n4\n8\n8\nBurntout\nBurnout";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n3\n6\n6\nBurntout\nBurnout";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n4\n7\n7\nBurntout\nBurnout";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n4\n4\n4\n3\n3";
+            reps = "\n\n4\n8\n8\nBurntout\nBurnout";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n\n Barbell Row\n Dumbbell Single Arm Row\n Seated Machine Row\n Close Grip Pull Ups\n Wide Grip Pull Ups";
+            sets = "\n\n3\n4\n4\n3\n3";
+            reps = "\n\n3\n6\n6\nBurntout\nBurnout";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "LEGS":
       {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "3\n20";
+          }
+          else if (week == 2)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "4\n20";
+          }
+          else if (week == 3)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "3\n20";
+          }
+          else if (week == 4)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "4\n20";
+          }
+          else if (week == 5)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "3\n20";
+          }
+          else if (week == 6)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "4\n20";
+          }
+          else if (week == 7)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "3\n20";
+          }
+          else if (week == 8)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "4\n20";
+          }
+          else if (week == 9)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "3\n20";
+          }
+          else if (week == 10)
+          {
+            exercise = " Smith Machine Squats\n Lunges";
+            sets = "3\n2";
+            reps = "4\n20";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Squat Program\n Leg Press\n Lunges\n *Your focus on this Intermediate program is to improve on squat form/weights. Check out squat programs.";
+            sets = "--\n3\n2";
+            reps = "--\n8\n20";
+          }
+          else if (week == 2)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n2";
+            reps = "--\n8\n20";
+          }
+          else if (week == 3)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n2";
+            reps = "--\n8\n20";
+          }
+          else if (week == 4)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n2";
+            reps = "--\n8\n20";
+          }
+          else if (week == 5)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n2";
+            reps = "--\n8\n20";
+          }
+          else if (week == 6)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n3";
+            reps = "--\n8\n20";
+          }
+          else if (week == 7)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n3";
+            reps = "--\n8\n20";
+          }
+          else if (week == 8)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n3";
+            reps = "--\n8\n20";
+          }
+          else if (week == 9)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n3";
+            reps = "--\n8\n20";
+          }
+          else if (week == 10)
+          {
+            exercise = " Squat Program\n Leg Press\n Lunges";
+            sets = "--\n3\n3";
+            reps = "--\n8\n20";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises\n *Your focus will be on Deadlift/Squat programs of your chosing. The previous page contains programs.";
+            sets = "--\n--\n4\n4";
+            reps = "--\n--\n8\n8";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n\n Deadlift Program\n Squat Program\n Leg Press\n Leg Raises";
+            sets = "\n\n--\n--\n4\n4";
+            reps = "\n\n--\n--\n8\n8";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "BICEPS":
