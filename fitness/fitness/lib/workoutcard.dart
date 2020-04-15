@@ -878,14 +878,635 @@ class _WorkoutState extends State<Workout>{
       }
       case "BICEPS":
       {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 2)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "7\n9\n9";
+          }
+          else if (week == 3)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 4)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 5)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "7\n9\n9";
+          }
+          else if (week == 6)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 7)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else if (week == 8)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "7\n9\n9";
+          }
+          else if (week == 9)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "8\n10\n10";
+          }
+          else if (week == 10)
+          {
+            exercise = " Seated Bicep Curls\n One-Handed Cables\n Two-Handed Cables";
+            sets = "4\n4\n4";
+            reps = "6\n8\n8";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n6\n6\n6\n6";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n7\n7\n7\n7";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n8\n8\n8\n8";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n6\n6\n6\n6";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n7\n7\n7\n7";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n8\n8\n8\n8";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n6\n6\n6\n6";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n7\n7\n7\n7";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n8\n8\n8\n8";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n Seated Bicep Curls\n Seated Hammer Curls\n Barbell Bicep Curls\n One-Handed Cables";
+            sets = "\n4\n4\n4\n4";
+            reps = "\n6\n6\n6\n6";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n6\n6\n8\n6";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n7\n7\n9\n7";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n8\n8\n10\n8";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n6\n6\n8\n6";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n7\n7\n9\n7";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n8\n8\n10\n8";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n6\n6\n8\n6";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n7\n7\n9\n7";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n8\n8\n10\n8";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n\n Preacher Curls\n SUPERSET: Hammer Curl\n One-Handed Cable\n Two-Handed Cables\n Barbell Curls\n Seated Curls";
+            sets = "\n\n3\n3\n4\n4\n3\n4";
+            reps = "\n\n12\n10\n6\n6\n8\n6";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "TRICEPS":
       {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n6\n6";
+          }
+          else if (week == 2)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n7\n7";
+          }
+          else if (week == 3)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n8\n8";
+          }
+          else if (week == 4)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n6\n6";
+          }
+          else if (week == 5)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n7\n7";
+          }
+          else if (week == 6)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n8\n8";
+          }
+          else if (week == 7)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n6\n6";
+          }
+          else if (week == 8)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n7\n7";
+          }
+          else if (week == 9)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n8\n8";
+          }
+          else if (week == 10)
+          {
+            exercise = " Dumbbell Extension\n One-Handed Cables";
+            sets = "\n3\n4";
+            reps = "\n6\n6";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n3\n4\n4\n3";
+            reps = "\n6\n6\n6\nBurnout";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n4\n4\n4\n3";
+            reps = "\n8\n8\n6\nBurnout";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n5\n5\n4\n3";
+            reps = "\n7\n7\n6\nBurnout";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n3\n4\n4\n3";
+            reps = "\n6\n6\n6\nBurnout";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n4\n4\n4\n3";
+            reps = "\n8\n8\n6\nBurnout";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n5\n5\n4\n3";
+            reps = "\n7\n7\n6\nBurnout";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n3\n4\n4\n3";
+            reps = "\n6\n6\n6\nBurnout";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n4\n4\n4\n3";
+            reps = "\n8\n8\n6\nBurnout";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n5\n5\n4\n3";
+            reps = "\n7\n7\n6\nBurnout";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n Dumbbell Extension\n One-Handed Cables\n Two-Handed Cables\n Push Ups";
+            sets = "\n3\n4\n4\n3";
+            reps = "\n6\n6\n6\nBurnout";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n3\n6\n6\n6\nBurnout";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n4\n7\n7\n7\nBurnout";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n4\n4\n4\n4\n5";
+            reps = "\n\n4\n8\n8\n8\nBurnout";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n3\n6\n6\n6\nBurnout";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n4\n7\n7\n7\nBurnout";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n4\n4\n4\n4\n5";
+            reps = "\n\n4\n8\n8\n8\nBurnout";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n3\n6\n6\n6\nBurnout";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n4\n7\n7\n7\nBurnout";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n4\n4\n4\n4\n5";
+            reps = "\n\n4\n8\n8\n8\nBurnout";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n\n Close-Grip Bench Press\n Cables (Handle)\n Cables (Rope)\n Cables (Curved Bar)\n Push Ups";
+            sets = "\n\n3\n4\n4\n4\n5";
+            reps = "\n\n3\n6\n6\n6\nBurnout";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "ABS":
       {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 2)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 3)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 4)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 5)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 6)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 7)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 8)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 9)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else if (week == 10)
+          {
+            exercise = " Situps\n Machine Situps";
+            sets = "\n3\n4";
+            reps = "\n15\n15";
+          }
+          else
+          {
+              exercise = null;
+              sets = null;
+              reps = null;
+          }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n4\n3";
+            reps = "\n\n15\n60 sec.\n15\n15";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n\n\n Side-to-Sides\n Machine Situps\n Leg Raises\n Negative Incline Situps\n *Negative inc. situps are usually done with medicine ball.";
+            sets = "\n\n3\n4\n3\n3";
+            reps = "\n\n60 sec.\n15\n15\n15";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n\n Machine Situps\n Leg Raises\n Negative Incline Situps\n Flutter Kicks";
+            sets = "\n\n4\n3\n3\n3";
+            reps = "\n\n15\n15\n15\n60 sec.";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n\n Leg Raises\n Negative Incline Situps\n Flutter Kicks\n Situps";
+            sets = "\n\n3\n3\n3\n3";
+            reps = "\n\n15\n15\n60 sec.\n15";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n\n Negative Incline Situps\n Flutter Kicks\n Situps\n Side-to-Sides";
+            sets = "\n\n3\n3\n3\n3";
+            reps = "\n\n15\n60 sec.\n15\n60 sec.";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n\n Flutter Kicks\n Situps\n Side-to-Sides\n Machine Situps";
+            sets = "\n\n3\n3\n3\n4";
+            reps = "\n\n60 sec.\n15\n60 sec.\n15";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n4\n3";
+            reps = "\n\n15\n60 sec.\n15\n15";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n\n Side-to-Sides\n Machine Situps\n Leg Raises\n Negative Incline Situps";
+            sets = "\n\n3\n4\n3\n3";
+            reps = "\n\n60 sec.\n15\n15\n15";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n\n Machine Situps\n Leg Raises\n Negative Incline Situps\n Flutter Kicks";
+            sets = "\n\n4\n3\n3\n3";
+            reps = "\n\n15\n15\n15\n60 sec.";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n\n Leg Raises\n Negative Incline Situps\n Flutter Kicks\n Situps";
+            sets = "\n\n3\n3\n3\n3";
+            reps = "\n\n15\n15\n60 sec.\n15";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          15\n          60 sec.\n          15\n          60 sec.\n          15\n          15";
+          }
+          else if (week == 2)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          15\n          60 sec.\n          15\n          60 sec.\n          15\n          15";
+          }
+          else if (week == 3)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          15\n          60 sec.\n          15\n          60 sec.\n          15\n          15";
+          }
+          else if (week == 4)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          15\n          60 sec.\n          15\n          60 sec.\n          15\n          15";
+          }
+          else if (week == 5)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          15\n          60 sec.\n          15\n          60 sec.\n          15\n          15";
+          }
+          else if (week == 6)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          20\n          80 sec.\n          20\n          80 sec.\n          20\n          20";
+          }
+          else if (week == 7)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          20\n          80 sec.\n          20\n          80 sec.\n          20\n          20";
+          }
+          else if (week == 8)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          20\n          80 sec.\n          20\n          80 sec.\n          20\n          20";
+          }
+          else if (week == 9)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          20\n          80 sec.\n          20\n          80 sec.\n          20\n          20";
+          }
+          else if (week == 10)
+          {
+            exercise = "\n\n Negative Side-to-Sides\n Planks\n Situps\n Side-to-Sides\n Machine Situps\n Leg Raises";
+            sets = "\n\n3\n3\n3\n3\n4\n3";
+            reps = "\n\n          20\n          80 sec.\n          20\n          80 sec.\n          20\n          20";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "SQUAT":
