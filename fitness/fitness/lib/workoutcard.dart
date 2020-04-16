@@ -7,6 +7,8 @@ String exercise;
 String reps;
 String sets;
 int maxLift;
+double temp;
+double temp2;
 TextEditingController myController = TextEditingController();
 
 class Workout extends StatefulWidget
@@ -1515,6 +1517,95 @@ class _WorkoutState extends State<Workout>{
       }
       case "DEADLIFT":
       {
+        if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .75;
+            temp2 = maxLift * .60;
+            exercise = "\n The advanced program features the Ed Coan Deadlift\n Program. Round weight to the nearest 5 lbs. Rest ~90 sec. \n between each speed set.\n Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = "\n\n\n\n 1\n 8";
+            reps = "\n\n\n\n 2\n 3";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .80;
+            temp2 = maxLift * .65;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 8";
+            reps = " 2\n 3";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .85;
+            temp2 = maxLift * .70;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 6";
+            reps = " 2\n 3";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .75;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 5";
+            reps = " 2\n 3";
+          }
+          else if (week == 5)
+          {
+            temp = maxLift * .80;
+            temp2 = maxLift * .65;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 3\n 3";
+            reps = " 3\n 3";
+          }
+          else if (week == 6)
+          {
+            temp = maxLift * .85;
+            temp2 = maxLift * .70;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 3";
+            reps = " 2\n 3";
+          }
+          else if (week == 7)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .75;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 3";
+            reps = " 2\n 3";
+          }
+          else if (week == 8)
+          {
+            temp = maxLift * .95;
+            temp2 = maxLift * .70;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 3";
+            reps = " 2\n 3";
+          }
+          else if (week == 9)
+          {
+            temp = maxLift * .975;
+            temp2 = maxLift * .70;
+            exercise = " Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = " 1\n 2";
+            reps = " 1\n 3";
+          }
+          else if (week == 10)
+          {
+            temp = maxLift * 1.0;
+            temp2 = maxLift * .60;
+            exercise = " MAX DAY\n\n Heavy Set @ ${temp.toString()} lbs\n Speed Sets @ ${temp2.toString()} lbs";
+            sets = "\n\n 1\n 2";
+            reps = "\n\n 1\n 3";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       case "BENCH":
@@ -1583,7 +1674,7 @@ class _WorkoutState extends State<Workout>{
           if ((muscle == "SQUAT" || muscle == "BENCH"  || muscle == "DEADLIFT") && weekNum == 1)
           Align(
             alignment: Alignment(0, -0.95),
-            child: Text ("Max: $maxLift lbs",
+            child: Text ("Desired Max: $maxLift lbs",
               style: TextStyle(
                 fontSize: 15,
                 decoration: TextDecoration.underline,
@@ -1602,7 +1693,7 @@ class _WorkoutState extends State<Workout>{
                     context: context,
                     builder: (context){
                       return AlertDialog(
-                        title: Text("Set Max"),
+                        title: Text("Set Desired Max"),
                         content: TextField(
                           controller: myController,
                           decoration: InputDecoration(hintText: "Input Goal"),
@@ -1632,7 +1723,7 @@ class _WorkoutState extends State<Workout>{
               shape: RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(45),
               ),
-              child: Text("Set Max"),
+              child: Text("Set Desired Max"),
               ),
             ),
           ),
