@@ -9,6 +9,9 @@ String sets;
 int maxLift;
 double temp;
 double temp2;
+double temp3;
+double temp4;
+
 TextEditingController myController = TextEditingController();
 
 class Workout extends StatefulWidget
@@ -1610,6 +1613,283 @@ class _WorkoutState extends State<Workout>{
       }
       case "BENCH":
       {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .70;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "15";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .75;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "12";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .85;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "1";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .50;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "10";
+          }
+          else if (week == 5)
+          {
+            temp = maxLift * .80;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "5";
+          }
+          else if (week == 6)
+          {
+            temp = maxLift * .85;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "3";
+          }
+          else if (week == 7)
+          {
+            temp = maxLift * .95;
+            exercise = " Flat Bench @ ${temp.toString()}";
+            sets = "3";
+            reps = "1";
+          }
+          else if (week == 8)
+          {
+            temp = maxLift * .75;
+            exercise = " Max Day - Find new max";
+            sets = "1";
+            reps = "1";
+          }
+          else if (week == 9)
+          {
+            temp = maxLift * .75;
+            exercise = " Program complete";
+            sets = "-";
+            reps = "-";
+          }
+          else if (week == 10)
+          {
+            temp = maxLift * .75;
+            exercise = " Program Complete";
+            sets = "-";
+            reps = "-";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .75;
+            temp3 = maxLift * .60;
+            exercise = "\n This program features Ken Lain's benching program. It's a\n 10 week program that consists of benching twice a week.\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n\n\n 1\n 2\n 3";
+            reps = "\n\n\n 1\n 10\n 3";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .92;
+            temp2 = maxLift * .775;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 9\n 3";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .94;
+            temp2 = maxLift * .80;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 8\n 3";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .96;
+            temp2 = maxLift * .825;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 7\n 3";
+          }
+          else if (week == 5)
+          {
+            temp = maxLift * .98;
+            temp2 = maxLift * .85;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 6\n 3";
+          }
+          else if (week == 6)
+          {
+            temp = maxLift * 1.0;
+            temp2 = maxLift * .875;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 5\n 3";
+          }
+          else if (week == 7)
+          {
+            temp = maxLift * 1.02;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 4\n 3";
+          }
+          else if (week == 8)
+          {
+            temp = maxLift * 1.04;
+            temp2 = maxLift * .925;
+            temp3 = maxLift * .60;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 2 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 2\n 3";
+            reps = "\n 1\n 3\n 3";
+          }
+          else if (week == 9)
+          {
+            temp = maxLift * .95;
+            temp2 = maxLift * .775;
+            temp3 = maxLift * .60;
+            exercise = " Day 1 @ ${temp.toString()} lbs\n Day 2";
+            sets = " 1 \n Rest";
+            reps = " 2";
+          }
+          else if (week == 10)
+          {
+            temp = maxLift * 1.0;
+            temp2 = maxLift * 1.04;
+            temp3 = maxLift * 1.08;
+            exercise = "\n Day 1 @ ${temp.toString()} lbs\n Day 1 @ ${temp2.toString()} lbs\n Day 1 @ ${temp3.toString()} lbs";
+            sets = "\n 1\n 1\n 1";
+            reps = "\n 1\n 1\n 1";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
+        else if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\n This features the Texas Method - three days a week with a\n goal of a new 5 rep max at the end of the week. \n Day 1 Volume @ ${temp.toString()} lbs\n Day 2 Recovery @ ${temp2.toString()} lbs\n Day 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n\n\n 5\n 3\n 1";
+            reps = "\n\n\n 5\n 5\n 5";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 5)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 6)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 7)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 8)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 9)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else if (week == 10)
+          {
+            temp = maxLift * .90;
+            temp2 = maxLift * .90;
+            temp3 = maxLift * 1.02;
+            exercise = "\nDay 1 Volume @ ${temp.toString()} lbs\nDay 2 Recovery @ ${temp2.toString()} lbs\nDay 3 New 5RM @ ${temp3.toString()} lbs";
+            sets = "\n 5\n 3\n 1";
+            reps = "\n 5\n 5\n 5";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
       }
       default:
