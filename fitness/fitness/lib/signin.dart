@@ -5,6 +5,8 @@ import 'mainpage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
 
+SharedPreferences sharedPreferences;
+
 class LoginPage extends StatefulWidget
 {
   @override
@@ -17,36 +19,48 @@ class _LoginPageState extends State<LoginPage>
 
   final TextEditingController userController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
+  String loginError = "";
 
-  doLogin(String username, password) async
+
+  Future doLogin(String username, password) async
   {
-    SharedPreferences sharedPreferences = await SharedPreferences.getInstance();
+    sharedPreferences = await SharedPreferences.getInstance();
     Map data = {
-      'email': username,
-      'password': password
+      "username": username,
+      "password": password
     };
-
+    
     var jsonResponse;
-    var response = await http.post("signinapi", body: data);
+    var response = await http.post("http://my-gym-pro.herokuapp.com/api/login", body: json.encode(data),
+      headers: {"accept": "application/json", "content-type": "application/json" }
+      );
+      
+    print("Response Status: ${response.statusCode}");
     if (response.statusCode == 200)
     {
       jsonResponse = json.decode(response.body);
+      print("Response Status: ${response.statusCode}");
 
       if (jsonResponse != null)
       {
         setState(() {
+          loginError = "";
           _isLoading = false;
          });
-        sharedPreferences.setString("token", jsonResponse['token']);
+        sharedPreferences.setString("token", jsonResponse['AccessToken']);
+        sharedPreferences.setString("id", jsonResponse['id']);
         Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => MainPage()), (Route<dynamic> route) => false);
       } 
     }
     else
     {
+      final parsed = jsonDecode(response.body);
+      final error = parsed['Error'];
       setState(() {
         _isLoading = false;
+        loginError = error; 
       });
-      print(response.body);
+      print(error);
     }
   }
 
@@ -80,6 +94,7 @@ class _LoginPageState extends State<LoginPage>
                 child: Column(
                   children: <Widget>[
                     TextField(
+                      controller: userController,
                       decoration: InputDecoration(
                           labelText: 'USERNAME',
                           labelStyle: TextStyle(
@@ -91,6 +106,7 @@ class _LoginPageState extends State<LoginPage>
                     ),
                     SizedBox(height: 20.0),
                     TextField(
+                      controller: passwordController,
                       decoration: InputDecoration(
                           labelText: 'PASSWORD',
                           labelStyle: TextStyle(
@@ -103,8 +119,14 @@ class _LoginPageState extends State<LoginPage>
                     ),
                     SizedBox(height: 5.0),
                     Container(
+                      alignment: Alignment(-1.0,0.0),
+                      padding: EdgeInsets.only(top:15),
+                      child: Text("$loginError",
+                      style: TextStyle(color: Colors.red)),
+                      ),
+                    Container(
                       alignment: Alignment(1.0, 0.0),
-                      padding: EdgeInsets.only(top: 15.0, left: 20.0),
+                      padding: EdgeInsets.only( left: 20.0),
                       child: InkWell(
                         child: Text(
                           'Forgot Password',
@@ -126,7 +148,12 @@ class _LoginPageState extends State<LoginPage>
                         elevation: 7.0,
                         child: GestureDetector(
                           onTap: () {
-                            Navigator.of(context).pushNamed('/main');
+                            userController.text == "" || passwordController == "" ? null : (){
+                              setState(() {
+                                _isLoading = true;
+                              });
+                            };
+                            doLogin(userController.text, passwordController.text);
                           },
                           child: Center(
                             child: Text(

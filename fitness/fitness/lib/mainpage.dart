@@ -9,17 +9,23 @@ import 'package:intl/intl.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'signin.dart';
 import 'imageupload.dart';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
 
 
 
 class MainPage extends StatefulWidget
 {
+  
   @override
-  _MainPageState createState() => new _MainPageState();
+  MainPageState createState() => new MainPageState();
 }
 
-class _MainPageState extends State<MainPage>
+class MainPageState extends State<MainPage>
 {
+
+  //SharedPreferences sharedPreferences;
+
   String miles = "Unknown";
   String calories = "Unknown";
   String stepCounter = "";
@@ -27,24 +33,55 @@ class _MainPageState extends State<MainPage>
   String goal = "Set Goal";
   StreamSubscription<int> subscription;
 
+  var stepsToCalories;
+  var distance;
+
+  String stepsToCaloriesTest;
+  String distanceTest;
+
   final myController = TextEditingController();
 
   double stepCount;
   double milesCount;
   int newGoal;
 
-  SharedPreferences sharedPreferences;
-
   @override
   void initState() 
   { 
     super.initState();
+    getStepData();
+    checkLoginStatus();
     pedometerInit();
+  }
+
+  void getStepData() async
+  {
+    var id = sharedPreferences.getString("id");
+    Map data = {
+      "id": id,
+    };
+    var token = sharedPreferences.getString("token");
+    var jsonResponse;
+    
+    var response = await http.post("https://my-gym-pro.herokuapp.com/api/getstepdata", body: json.encode(data),
+      headers: {"accept": "application/json", "content-type": "application/json", "Authorization": "Bearer $token" }
+      );
+      
+        if (response.statusCode == 200)
+        {
+          jsonResponse = json.decode(response.body);
+          if (jsonResponse != null)
+          {
+            print(jsonResponse["StepData"]);
+          } 
+      }
+
   }
 
   void pedometerInit()
   {
     Pedometer pedometer = new Pedometer();
+    getStepData();
     subscription = pedometer.pedometerStream.listen(onData,
     onError: onError, onDone: onDone, cancelOnError: true);
   }
@@ -54,6 +91,35 @@ class _MainPageState extends State<MainPage>
     setState(() {
       newGoal = int.parse(this.goal);
     });
+  }
+
+  void storeStepData(String userID, String date, String stepCount, String distance, String calories, int goal) async
+  {
+    Map data = {
+      "userID": userID,
+      "date": date,
+      "numSteps": stepCount,
+      "distanceTraveled": distance,
+      "caloriesBurned": calories,
+      "dailyGoal": goal
+    };
+
+    var token = sharedPreferences.getString("token");
+
+    var jsonResponse;
+    var response = await http.post("https://my-gym-pro.herokuapp.com/api/poststepdata", body: json.encode(data),
+      headers: {"accept": "application/json", "content-type": "application/json", "Authorization": "Bearer $token" }
+      );
+    
+    if (response.statusCode == 200)
+    {
+      jsonResponse = json.decode(response.body);
+
+      if (jsonResponse != null)
+      {
+        print(jsonResponse);
+      } 
+    }
   }
   
   void onDone(){
@@ -81,22 +147,33 @@ class _MainPageState extends State<MainPage>
     });
 
     getDistanceRun(this.stepCount);
-    getCaloriesBurned(this.stepCount);
-
-  }
-
-  void getDistanceRun(double stepCount)
-  {
-    var distance = ((stepCount * 2.5) / 5280);
-    distance = num.parse(distance.toStringAsFixed(2));
-    var distancekmx = distance * 34;
-    distancekmx = num.parse(distancekmx.toStringAsFixed(2));
 
     setState(() 
     {
       miles = "$distance";
     });
 
+    getCaloriesBurned(this.stepCount);
+
+    setState(() 
+    {
+      calories = "$stepsToCalories";
+    });
+
+  }
+
+  void getDistanceRun(double stepCount)
+  {
+    distance = ((stepCount * 2.5) / 5280);
+    if (distance.isNegative)
+    {
+      miles = "Error: negative value";
+      distanceTest = "Error: negative value";
+      return;
+    }
+
+    distanceTest = distance.toStringAsFixed(2);
+    distance = num.parse(distance.toStringAsFixed(0));
   }
 
   double getCircularPercent(int goal, String stepCount)
@@ -131,12 +208,16 @@ class _MainPageState extends State<MainPage>
 
   void getCaloriesBurned(double stepCount)
   {
-    var stepsToCalories = .04 * stepCount;
-    stepsToCalories = num.parse(stepsToCalories.toStringAsFixed(1));
-    setState(() 
+    stepsToCalories = .04 * stepCount;
+    if (stepsToCalories.isNegative)
     {
-      calories = "$stepsToCalories";
-    });
+      calories = "Error: negative value";
+      stepsToCaloriesTest = "Error: negative value";
+      return;
+    }
+    stepsToCaloriesTest = stepsToCalories.toStringAsFixed(2);
+    stepsToCalories = num.parse(stepsToCalories.toStringAsFixed(1));
+  
   }
 
   checkLoginStatus() async
@@ -146,6 +227,19 @@ class _MainPageState extends State<MainPage>
     {
       Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
     }
+  }
+
+  void doLogout() async
+  {
+    storeStepData(sharedPreferences.getString("id"), date(), stepCountVal, miles, calories, newGoal);
+    try
+    {
+      sharedPreferences.clear();
+    }
+    catch (NoSuchMethodError){
+      print("Logout error");
+    }
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
   }
   
   String date()
@@ -197,7 +291,8 @@ class _MainPageState extends State<MainPage>
                     child: IconButton(
                       icon: Icon(Icons.exit_to_app, color: Colors.black),
                       onPressed: (){
-                        //doLogout();
+                        storeStepData(sharedPreferences.getString("id"), date(), stepCountVal, miles, calories, newGoal);
+                        doLogout();
                       },
                       iconSize: 30,
                     ),
@@ -316,7 +411,7 @@ class _MainPageState extends State<MainPage>
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(25),
                          ),
-                         child: Text("History"),
+                         child: Text("Reset Progress"),
                        ),
                         RaisedButton(
                          onPressed: (){
