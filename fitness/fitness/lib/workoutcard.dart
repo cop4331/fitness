@@ -1516,7 +1516,173 @@ class _WorkoutState extends State<Workout>{
       }
       case "SQUAT":
       {
+              case "SQUAT":
+      {
+        if (difficulty == "Beginner")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .6;
+            temp2 = maxLift * .65;
+            temp3 = maxLift * .7;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} ";
+            sets = "\n 2\n 1\n 1";
+            reps = "\n 5\n 3\n 2";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .6;
+            temp2 = maxLift * .65;
+            temp3 = maxLift * .7;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} ";
+            sets = "\n 1\n 2\n 1";
+            reps = "\n 4\n 4\n 2";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .6;
+            temp2 = maxLift * .65;
+            temp3 = maxLift * .7;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} ";
+            sets = "\n 1\n 1\n 1";
+            reps = "\n 4\n 4\n 3";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .6;
+            temp2 = maxLift * .65;
+            temp3 = maxLift * .7;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} ";
+            sets = "\n 1\n 1\n 2";
+            reps = "\n 4\n 4\n 4";
+          }
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+            break;
+          }
+        if (difficulty == "Intermediate")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .85;
+            exercise = "\n ${temp.toString()} lbs} ";
+            sets = "\n 10";
+            reps = "\n 1";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .85;
+            exercise = "\n ${temp.toString()} lbs} ";
+            sets = "\n 4";
+            reps = "\n 2";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .85;
+            exercise = "\n ${temp.toString()} lbs} ";
+            sets = "\n 4";
+            reps = "\n 3";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .85;
+            exercise = "\n ${temp.toString()} lbs} ";
+            sets = "\n 2";
+            reps = "\n 4";
+          }
+          else if (week == 5)
+          {
+            temp = maxLift * .85;
+            exercise = "\n ${temp.toString()} lbs} ";
+            sets = "\n 1";
+            reps = "\n AMRAP";
+          }
+          else if (week == 6)
+          {
+            temp = maxLift * .85;
+            exercise = "\n ${temp.toString()} lbs} ";
+            sets = "\n 3";
+            reps = "\n 4";
+          }    
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+            break;
+          }
+        if (difficulty == "Advanced")
+        {
+          if (week == 1)
+          {
+            temp = maxLift * .8;
+            temp2 = maxLift * .86;
+            temp3 = maxLift * .925;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} lbs";
+            sets = "\n 1\n 1\n 1";
+            reps = "\n 2\n 2\n 2";
+          }
+          else if (week == 2)
+          {
+            temp = maxLift * .8;
+            temp2 = maxLift * .875;
+            temp3 = maxLift * .95;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} lbs";
+            sets = "\n 1\n 1\n 1";
+            reps = "\n 4\n 3\n 2";
+          }
+          else if (week == 3)
+          {
+            temp = maxLift * .8;
+            temp2 = maxLift * .86;
+            temp3 = maxLift * .92;
+            temp4 = maxLift * .975;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()}\n ${temp4.toString()} lbs";
+            sets = "\n 1\n 1\n 1\n 1";
+            reps = "\n 2\n 2\n 2\n 2";
+          }
+          else if (week == 4)
+          {
+            temp = maxLift * .8;
+            temp2 = maxLift * .875;
+            temp3 = maxLift * .95;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} lbs";
+            sets = "\n 1\n 1\n 1";
+            reps = "\n 5\n 4\n 3";
+          }
+          else if (week == 5)
+          {
+            temp = maxLift * .8;
+            temp2 = maxLift * .86;
+            temp3 = maxLift * .92;
+            temp4 = maxLift * .975;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()}\n ${temp4.toString()} lbs";
+            sets = "\n 1\n 1\n 1\n 1";
+            reps = "\n 2\n 2\n 2\n 2";
+          }
+          else if (week == 6)
+          {
+            temp = maxLift * .8;
+            temp2 = maxLift * .86;
+            temp3 = maxLift * .925;
+            exercise = "\n ${temp.toString()} lbs\n ${temp2.toString()} lbs\n ${temp3.toString()} lbs";
+            sets = "\n 1\n 1\n 1";
+            reps = "\n 2\n 1\n 4+";
+          } 
+          else
+          {
+            exercise = null;
+            sets = null;
+            reps = null;
+          }
+        }
         break;
+      }
       }
       case "DEADLIFT":
       {
