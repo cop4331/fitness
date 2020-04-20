@@ -3,20 +3,15 @@ import 'package:flutter/cupertino.dart';
 
 Column cardCol(String type){
   return Column(
+    mainAxisAlignment: MainAxisAlignment.center,
     children: <Widget>[
       Container(
-        padding: new EdgeInsets.fromLTRB(0, 40, 0, 0),
-        child:Icon(
-          Icons.directions_bike,
-          color: Colors.white,
-          size: 60,
-        ),
-      ),
-      Container(
-        padding: new EdgeInsets.fromLTRB(0, 15, 0, 0),
+        alignment: Alignment.center,
         child: Align(
-          alignment: Alignment.bottomCenter,
-          child: Text('$type'),
+          alignment: Alignment.center,
+          child: Text('$type',
+          style: TextStyle(fontSize: 18)
+          ,),
         ),
       ),
     ],
