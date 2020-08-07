@@ -58,12 +58,13 @@ class MainPageState extends State<MainPage>
   {
     var id = sharedPreferences.getString("id");
     Map data = {
-      "id": id,
+      "userID": id,
     };
+    print(id);
     var token = sharedPreferences.getString("token");
     var jsonResponse;
     
-    var response = await http.post("https://my-gym-pro.herokuapp.com/api/getstepdata", body: json.encode(data),
+    var response = await http.post("https://my-gym-pro.herokuapp.com/api/getrecentstepdata", body: json.encode(data),
       headers: {"accept": "application/json", "content-type": "application/json", "Authorization": "Bearer $token" }
       );
       
@@ -72,10 +73,12 @@ class MainPageState extends State<MainPage>
           jsonResponse = json.decode(response.body);
           if (jsonResponse != null)
           {
-            print(jsonResponse["StepData"]);
+            print(jsonResponse['StepData'][0]['Goal']);
           } 
       }
-
+      setState(() {
+        newGoal = jsonResponse['StepData'][0]['Goal'];
+      });
   }
 
   void pedometerInit()
@@ -103,7 +106,7 @@ class MainPageState extends State<MainPage>
       "caloriesBurned": calories,
       "dailyGoal": goal
     };
-
+    print(data);
     var token = sharedPreferences.getString("token");
 
     var jsonResponse;
@@ -138,8 +141,8 @@ class MainPageState extends State<MainPage>
       stepCountVal = "$stepCount";
     });
 
-    var distance = stepCount;
-    double y = distance.toDouble();
+    var dis = stepCount;
+    double y = dis.toDouble();
 
     setState(() 
     {
@@ -150,7 +153,7 @@ class MainPageState extends State<MainPage>
 
     setState(() 
     {
-      miles = "$distance";
+      miles = "$distanceTest";
     });
 
     getCaloriesBurned(this.stepCount);
@@ -173,7 +176,8 @@ class MainPageState extends State<MainPage>
     }
 
     distanceTest = distance.toStringAsFixed(2);
-    distance = num.parse(distance.toStringAsFixed(0));
+    distance = distance.toStringAsFixed(2);
+    print(distance);
   }
 
   double getCircularPercent(int goal, String stepCount)
@@ -411,7 +415,7 @@ class MainPageState extends State<MainPage>
                          shape: RoundedRectangleBorder(
                            borderRadius: BorderRadius.circular(25),
                          ),
-                         child: Text("Reset Progress"),
+                         child: Text("History"),
                        ),
                         RaisedButton(
                          onPressed: (){

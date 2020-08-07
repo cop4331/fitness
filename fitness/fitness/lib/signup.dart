@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:password/password.dart';
 
 class SignUpPage extends StatefulWidget
 {
@@ -20,13 +21,14 @@ class _SignUpPageState extends State<SignUpPage>
 
   Future doSignup(String email, String username, String password) async
   {
-    String url = "http://my-gym-pro.herokuapp.com/api/signup";
+    var hash = Password.hash(password, new PBKDF2());
+
     Map data = {
       "username" : username,
       "email": email,
-      "password": password
+      "password": hash
     };
-   
+    
     var jsonResponse;
     var response = await http.post("http://my-gym-pro.herokuapp.com/api/signup", body: json.encode(data),
     headers: {"accept": "application/json", "content-type": "application/json" });
@@ -131,7 +133,7 @@ class _SignUpPageState extends State<SignUpPage>
                           elevation: 7.0,
                           child: GestureDetector(
                             onTap: () {
-                              doSignup(emailController.text, userController.text, passwordController.text);
+                              doSignup(emailController.text.replaceAll("\t",""), userController.text.replaceAll("\t",""), passwordController.text.replaceAll("\t",""));
                             },
                             child: Center(
                               child: Text(

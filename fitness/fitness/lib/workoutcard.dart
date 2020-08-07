@@ -1516,8 +1516,7 @@ class _WorkoutState extends State<Workout>{
       }
       case "SQUAT":
       {
-              case "SQUAT":
-      {
+      
         if (difficulty == "Beginner")
         {
           if (week == 1)
@@ -1682,7 +1681,6 @@ class _WorkoutState extends State<Workout>{
           }
         }
         break;
-      }
       }
       case "DEADLIFT":
       {

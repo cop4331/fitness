@@ -5,7 +5,7 @@ import 'dart:math' as math;
 Column cardCol(String type){
   return Column(
     children: <Widget>[
-      if('$type'== 'SQUAT')
+      if(type== 'SQUAT')
       Container(
         padding: new EdgeInsets.fromLTRB(0, 40, 0, 0),
         child: Image(

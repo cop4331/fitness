@@ -1,6 +1,8 @@
 import 'package:MyGymPro/programheader.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'signin.dart';
 
 
 class WorkoutPage extends StatefulWidget
@@ -16,6 +18,21 @@ class _WorkoutPageState extends State<WorkoutPage>
 {
   _WorkoutPageState({this.muscle});
   final String muscle;
+
+   void doLogout() async
+  {
+    try
+    {
+      sharedPreferences.clear();
+    }
+    catch (NoSuchMethodError)
+    {
+      print("Logout error");
+    }
+    Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (BuildContext context) => LoginPage()), (Route<dynamic> route) => false);
+  }
+
+
   @override
   Widget build(BuildContext context)
   {
@@ -60,7 +77,7 @@ class _WorkoutPageState extends State<WorkoutPage>
                   child: IconButton(
                     icon: Icon(Icons.exit_to_app, color: Colors.black),
                     onPressed: (){
-                      //logout
+                      doLogout();
                     },
                     iconSize: 30,
                   ),

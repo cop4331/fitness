@@ -4,6 +4,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'mainpage.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
+import 'package:password/password.dart';
 
 SharedPreferences sharedPreferences;
 
@@ -24,10 +25,12 @@ class _LoginPageState extends State<LoginPage>
 
   Future doLogin(String username, password) async
   {
+    var hash = Password.hash(password, new PBKDF2());
+
     sharedPreferences = await SharedPreferences.getInstance();
     Map data = {
       "username": username,
-      "password": password
+      "password": hash
     };
     
     var jsonResponse;
@@ -153,7 +156,7 @@ class _LoginPageState extends State<LoginPage>
                                 _isLoading = true;
                               });
                             };
-                            doLogin(userController.text, passwordController.text);
+                            doLogin(userController.text.replaceAll("\t",""), passwordController.text.replaceAll("\t",""));
                           },
                           child: Center(
                             child: Text(
